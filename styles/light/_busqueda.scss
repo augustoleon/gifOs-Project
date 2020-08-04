@@ -1,0 +1,71 @@
+.search {
+    width: 100%;
+    height: 99px;
+    margin-top: 38px;
+    background-color: $bgcards;
+    box-shadow: $shadowcards;
+
+    .head1 {
+        @extend div.head;
+        font-family: $fontregular;
+        font-size: $sizeheadbold;
+        color: $headcolorbold;
+        box-shadow: inset -2px 0px rgba(180,180,180,1), inset 2px 2px rgba(255,255,255,1);
+
+        
+        b {
+            margin: 3px;
+        }        
+    }
+
+    .busqueda {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 12px;
+
+
+
+        .searchbox{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 15px;
+            width: 980px;
+            height: 48px;
+            box-shadow: inset -2px -2px rgba(230,230,230,1), inset 2px 2px rgba(0,0,0,1);
+            background-color: white;
+            border: 1px solid rgba(151,151,151,1);
+            
+            
+            .buscador {
+                width: 95%;
+                height: 38px;
+                border: none;
+                font-family: $fontregular;
+                font-size: $sizebutton;
+                color: $buttoncolor;
+                outline: none;
+            }
+        }
+
+        .bottonsearch{
+            display: flex;
+            justify-content: space-evenly;
+            width: 102px;
+            height: 36px;
+            box-shadow: inset -1px -1px rgba(180,180,180,1), 1px 1px rgba(255,255,255,1);
+            border: 1px solid rgba(128,128,128,1);
+            margin: 0px 18px 0px 8px;
+
+            a{
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                font-size: $sizebutton;
+                font-family: $fontregular;
+                color: rgba(180,180,180,1);
+            }
+        }
+    }
+}
