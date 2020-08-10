@@ -6,7 +6,8 @@ section.sugerencias {
         display: flex;
         justify-content: space-between;
 
-        margin: 16px 0px 100px;
+        //Quitar al finalizar
+        margin: 16px 0px 68px;
         
         .container {
             background-color: rgba(230,230,230,1);
@@ -39,11 +40,36 @@ section.sugerencias {
             
             // img de la caja contenedora
             .imghas {
-                border: 1px solid black;
                 height: 280px;
                 width: 250px;
                 margin:2px 6px 4px;
 
+            }
+
+            .buttonmas{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+
+
+                width: 81px;
+                height: 34px;
+                border: 1px solid black;
+                position: relative;
+                margin: -53px 0px 0px 13px;
+
+                background-color: $bgvermas;
+                box-shadow: $insetvermas;
+                border: $bordervermas;
+
+                p{
+                    font-family: $fontregular;
+                    font-size: $sizeheadbold;
+
+                    color: $headcolorbold;
+
+                }
             }
 
 

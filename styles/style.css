@@ -342,7 +342,7 @@ section.sugerencias .boxsug {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin: 16px 0px 100px;
+  margin: 16px 0px 68px;
 }
 
 section.sugerencias .boxsug .container {
@@ -383,10 +383,69 @@ section.sugerencias .boxsug .container .hastext img {
 }
 
 section.sugerencias .boxsug .container .imghas {
-  border: 1px solid black;
   height: 280px;
   width: 250px;
   margin: 2px 6px 4px;
+}
+
+section.sugerencias .boxsug .container .buttonmas {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  width: 81px;
+  height: 34px;
+  border: 1px solid black;
+  position: relative;
+  margin: -53px 0px 0px 13px;
+  background-color: #4180f6;
+  -webkit-box-shadow: inset -2px -2px #284f99, inset 2px 2px white;
+          box-shadow: inset -2px -2px #284f99, inset 2px 2px white;
+  border: 1px solid #4c2f99;
+}
+
+section.sugerencias .boxsug .container .buttonmas p {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 14px;
+  color: white;
+}
+
+.tendencia {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 32px;
+  margin-top: 64px;
+  border: 1px solid #e6bbe2;
+  -webkit-box-shadow: inset -2px -2px #e6dce4, inset 2px 2px #80687d;
+          box-shadow: inset -2px -2px #e6dce4, inset 2px 2px #80687d;
+}
+
+.tendencia label.trending {
+  font-size: 14px;
+  font-family: "Chakra Petch", sans-serif;
+  margin-left: 7px;
+  color: #110038;
+}
+
+.tendencia .trendingview {
+  width: 85%;
+  outline: none;
+  border: none;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 14px;
+  margin-left: 5px;
+  color: #110038;
 }
 
 * {
