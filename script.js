@@ -21,7 +21,11 @@ const day = document.getElementById('day');
 const night = document.getElementById('night');
 const body = document.getElementById('cuerpo');
 
-night.addEventListener('click', () => {
-    body.style.backgroundColor = 'rgba(17,0,56,1)';
-})
+function changeTheme(){
+    
+    night.addEventListener('click', () => {
+        body.style.backgroundColor = 'rgba(17,0,56,1)';
+    })
+}
 
+changeTheme();
