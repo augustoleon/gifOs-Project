@@ -3,7 +3,6 @@ div.head {
     justify-content: left;
     width: 100%;
     height: 23px;
-
     background-image: $bgheadlight;
 
 }
@@ -46,7 +45,7 @@ main.principal{
                 
             }
             
-            @mixin buttoStyle() {
+            @mixin buttonStyle() {
                 border: 1px solid rgba(17,0,56,1);
                 font-family: $fontregular;
                 font-size: $sizebutton;
@@ -60,10 +59,10 @@ main.principal{
             } 
             .bcrear{
                 margin-right: 16px;
-                @include buttoStyle();
+                @include buttonStyle();
             }
             .belegir{
-                @include buttoStyle();
+                @include buttonStyle();
             }
             .expandir {
                 display: flex;

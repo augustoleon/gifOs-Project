@@ -13,6 +13,7 @@ section.sugerencias {
             background-color: rgba(230,230,230,1);
             height: 100%;
             box-shadow: $shadowcards;
+                  
             
             // Head de la caja contenedora
             .hastext{
@@ -55,7 +56,73 @@ section.sugerencias {
 
                 width: 81px;
                 height: 34px;
-                border: 1px solid black;
+        position: relative;
+                margin: -53px 0px 0px 13px;
+
+                background-color: $bgvermas;
+                box-shadow: $insetvermas;
+                border: $bordervermas;
+
+                p{
+                    font-family: $fontregular;
+                    font-size: $sizeheadbold;
+
+                    color: $headcolorbold;
+
+                }
+            }
+                  
+
+
+        }
+
+        .container0 {
+            background-color: rgba(230,230,230,1);
+            height: 100%;
+            box-shadow: $shadowcards;
+                  
+            
+            // Head de la caja contenedora
+            .hastext0{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                box-shadow: inset 0px 0px rgba(180,180,180,1), inset 2px 2px rgba(255,255,255,1);
+                width: 260px;
+                height: 24px;
+                background-image: $bgheadlight;
+                font-weight: bold;
+                color: white;
+                font-size: $sizeheadbold;
+                font-family: $fontregular;
+
+                p {                    
+                    margin-left: 3px;
+                }
+
+                img{
+                    margin-right: 4px;
+                }
+            }
+            
+            // img de la caja contenedora
+            .imghas0 {
+                height: 280px;
+                width: 250px;
+                margin:2px 6px 4px;
+
+            }
+
+            .buttonmas0 {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+
+
+                width: 81px;
+                height: 34px;
                 position: relative;
                 margin: -53px 0px 0px 13px;
 
@@ -71,10 +138,149 @@ section.sugerencias {
 
                 }
             }
-
+                  
 
 
         }
+
+        .container1 {
+            background-color: rgba(230,230,230,1);
+            height: 100%;
+            box-shadow: $shadowcards;
+                  
+            
+            // Head de la caja contenedora
+            .hastext1{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                box-shadow: inset 0px 0px rgba(180,180,180,1), inset 2px 2px rgba(255,255,255,1);
+                width: 260px;
+                height: 24px;
+                background-image: $bgheadlight;
+                font-weight: bold;
+                color: white;
+                font-size: $sizeheadbold;
+                font-family: $fontregular;
+
+                p {                    
+                    margin-left: 3px;
+                }
+
+                img{
+                    margin-right: 4px;
+                }
+            }
+            
+            // img de la caja contenedora
+            .imghas1 {
+                height: 280px;
+                width: 250px;
+                margin:2px 6px 4px;
+
+            }
+
+            .buttonmas1{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+
+
+                width: 81px;
+                height: 34px;
+                position: relative;
+                margin: -53px 0px 0px 13px;
+
+                background-color: $bgvermas;
+                box-shadow: $insetvermas;
+                border: $bordervermas;
+
+                p{
+                    font-family: $fontregular;
+                    font-size: $sizeheadbold;
+
+                    color: $headcolorbold;
+
+                }
+            }
+                  
+
+
+        }
+
+        .container2 {
+            background-color: rgba(230,230,230,1);
+            height: 100%;
+            box-shadow: $shadowcards;
+                  
+            
+            // Head de la caja contenedora
+            .hastext2{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                box-shadow: inset 0px 0px rgba(180,180,180,1), inset 2px 2px rgba(255,255,255,1);
+                width: 260px;
+                height: 24px;
+                background-image: $bgheadlight;
+                font-weight: bold;
+                color: white;
+                font-size: $sizeheadbold;
+                font-family: $fontregular;
+
+                p {                    
+                    margin-left: 3px;
+                }
+
+                img{
+                    margin-right: 4px;
+                }
+            }
+            
+            // img de la caja contenedora
+            .imghas2 {
+                height: 280px;
+                width: 250px;
+                margin:2px 6px 4px;
+
+            }
+
+            .buttonmas2{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+
+
+                width: 81px;
+                height: 34px;
+                position: relative;
+                margin: -53px 0px 0px 13px;
+
+                background-color: $bgvermas;
+                box-shadow: $insetvermas;
+                border: $bordervermas;
+
+                p{
+                    font-family: $fontregular;
+                    font-size: $sizeheadbold;
+
+                    color: $headcolorbold;
+
+                }
+            }
+                  
+
+
+        }
+
+
+
+
+        
 
     }
 }
