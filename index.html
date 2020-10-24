@@ -57,18 +57,21 @@
                 <div class="searchbox">
                     <input type="text" id="inputsearch" class="buscador" placeholder="Busca gifs, hashtags, temas, busca lo que quieras…">
                 </div>
-                <divo onclick="getSearchResults()" class="bottonsearch" id="search">
-                    <img src="./assets/lupa_inactive.svg" alt="lupa-inactive">
-                    <a href="">Buscar</a>
+                <div onclick="getSearchOutcomes()" class="bottonsearch" id="search">
+                    <img src="./assets/lupa_inactive.svg" alt="lupa-inactive" id="lupaInactive">
+                    <img src="./assets/lupa_light.svg" alt="lupa-light" id="lupaLight">
+                    <img src="./assets/lupa.svg" alt="lupa" id="lupa">
+                    <a href="" id="buscarText">Buscar</a>
                 </div>
 
             </div>
         </section>
-        <section>
-            <div class="results">
-                <div class="res1"><p></p></div>
-                <div class="res2"><p></p></div>
-                <div class="res3"><p></p></div>
+        <!-- Outcomes -->
+        <section class="outs">
+            <div class="outcomes">
+                <div class="res" id="res0"></div>
+                <div class="res" id="res1"></div>
+                <div class="res" id="res2"></div>
             </div>
 
         </section>
@@ -112,7 +115,7 @@
                 <!-- <input type="text" class="trendingview"> -->
             </div>
 
-            <div class='grid' id= 'grid'>
+            <div class='grid' id= 'gridTrendings'>
             <!--     <div class="cardTrending">
                     <div class="imgCardT">
                         <img src="https://media2.giphy.com/media/kf9dfB18XB6JGM8J7s/giphy.gif?cid=3e40e225mect1b97wa5ht9j5qn86xl2797e8kcovp0724dm2&rid=giphy.gif" alt="">
@@ -124,6 +127,28 @@
                 </div>                
             </div> -->
         </section>
+
+        <!-- SEARCH2 -->
+        <section>
+            <div class="tendencia">
+                <label for="" class="trending">Busqueda:</label>
+                <!-- <input type="text" class="trendingview"> -->
+            </div>
+
+            <div class='grid' id= 'gridSearch'>
+            <!--     <div class="cardTrending">
+                    <div class="imgCardT">
+                        <img src="https://media2.giphy.com/media/kf9dfB18XB6JGM8J7s/giphy.gif?cid=3e40e225mect1b97wa5ht9j5qn86xl2797e8kcovp0724dm2&rid=giphy.gif" alt="">
+
+                    </div>
+                    <div class="cardText">
+                        <p class="textTrending"> #</p>
+                    </div>
+                </div>                
+            </div> -->
+        </section>
+
+        
 
     </main>
 

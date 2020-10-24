@@ -704,6 +704,8 @@ section.sugerencias .boxsug .container2 .buttonmas2 p {
   color: white;
   font-size: 14px;
   font-family: "Chakra Petch", sans-serif;
+  position: absolute;
+  margin-top: -30px;
 }
 
 .grid .cardTrending .cardText .textTrending {
@@ -722,39 +724,33 @@ section.sugerencias .boxsug .container2 .buttonmas2 p {
   visibility: visible;
 }
 
-div.results {
+div.outcomes {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   width: 100%;
   height: 160px;
-  border: 1px solid grey;
   background-color: #e6e6e6;
+  -webkit-box-shadow: inset -2px -2px #b4b4b4, inset 2px 2px white;
+          box-shadow: inset -2px -2px #b4b4b4, inset 2px 2px white;
 }
 
-div.results .res1 {
-  border: 1px solid blue;
-  width: 85%;
+div.outcomes .res {
+  width: 87%;
   height: 34px;
-  margin-top: 1.5%;
-  margin-bottom: 1%;
   background-color: #f0f0f0;
   margin-left: 16px;
+  -webkit-box-shadow: inset -2px -2px #b4b4b4, inset 2px 2px white;
+          box-shadow: inset -2px -2px #b4b4b4, inset 2px 2px white;
 }
 
-div.results .res2 {
-  border: 1px solid blue;
-  width: 85%;
-  height: 34px;
-  margin-bottom: 1%;
-  background-color: #f0f0f0;
-  margin-left: 16px;
-}
-
-div.results .res3 {
-  border: 1px solid blue;
-  width: 85%;
-  height: 34px;
-  margin-bottom: 1%;
-  background-color: #f0f0f0;
-  margin-left: 16px;
+.res:hover {
+  outline: 1px dotted #110038;
 }
 
 * {

@@ -8,15 +8,29 @@ const night = document.getElementById('night');
 const body = document.getElementById('cuerpo');
 let url = 'http://api.giphy.com/v1/gifs/search';
 
+//ABRO LUPA
+let lupaInactive = document.getElementById('lupaInactive');
+
+let lupaLight = document.getElementById('lupaLight');
+lupaLight.style.display='none';
+
+let lupa = document.getElementById('lupa');
+lupa.style.display='none';
+
+
+
+// CIERRO LUPA
+
+
 // Ver data!
 // function getSearchResults(search) {}
-function getSearchResults() {
-    const search = document.getElementById('inputsearch')
+function getSearchOutcomes() {
+    let search = document.getElementById('inputsearch');
+    let value = search.value;
     let buttonSearch = document.getElementById('search');
     const found =
     
-    fetch('http://api.giphy.com/v1/gifs/search?q=' + search.value +
-    '&api_key=' + apiKey)
+    fetch('http://api.giphy.com/v1/gifs/search?q=' + value + apiKey)
     .then(response => response.json())
     .then(data => {
         console.log('datos de gifs', data)
@@ -104,24 +118,18 @@ async function showGifSuggestion(){
 
 showGifSuggestion();
 
-async function showTrendings(limit=10){
-    //GRID
-    let grid = document.getElementById('grid');
+function getGifs(trendings, section){
     
-    //fetch
-    let data = await fetch(`https://api.giphy.com/v1/gifs/trending${apiKey}&limit=${limit}&rating=g`);
-    let trendings = await data.json();
-    console.log('trendings: ',trendings);
     
     for( gifs of trendings.data){
         //console.log('console.log(gifs): ',gifs);
-
-
+        
+    
         // Container
         let cardTrending = document.createElement('div');
         cardTrending.setAttribute('class','cardTrending');
-
-        //img
+    
+        //img ---> Probar backgorund-image
         let imgCard = document.createElement('div');
         imgCard.setAttribute('class', 'imgCardT');
         let img = document.createElement('img');
@@ -147,17 +155,96 @@ async function showTrendings(limit=10){
         imgCard.appendChild(img);
         cardTrending.appendChild(imgCard);
         cardTrending.appendChild(cardText);
-
-
+        
+        
         cardText.appendChild(textTrending)
-
-
-        grid.appendChild(cardTrending);
-
+        
+        console.log('section:', section);
+        section.appendChild(cardTrending);
+        
     }
+    
+}
+
+async function showTrendings(limit=10){
+    //GRID
+    let grid = document.getElementById('gridTrendings');
+    
+    //fetch
+    let data = await fetch(`https://api.giphy.com/v1/gifs/trending${apiKey}&limit=${limit}&rating=g`);
+    let trendings = await data.json();
+    console.log('trendings: ',trendings);
+
+    getGifs(trendings, grid);    
 
     return trendings;
 }
 
 showTrendings();
+
+async function showSearch(limit=20){
+    //GRID
+    let grid = document.getElementById('gridSearch');
+
+    
+    //fetch
+    let data = await fetch(`https://api.giphy.com/v1/gifs/search${apiKey}&limit=${limit}&q=cheeseburger`);
+    let trendings = await data.json();
+    console.log('trendings: ',trendings);
+
+    getGifs(trendings, grid);    
+
+    return trendings;
+}
+
+showSearch();
+
+
+// OUTCOMES 
+let qSearch = document.getElementById('inputsearch');
+qSearch.addEventListener('keydown', showOutcomes);
+
+async function showOutcomes() {
+    let value = qSearch.value;
+    let data = await fetch(`https://api.giphy.com/v1/gifs/search/tags${apiKey}&q=${value}`);
+    let autocompleted = await data.json();
+    console.log('Autocompleted:', autocompleted);
+
+    //Cuando llamas por clases te trae un array
+    let outcome = document.getElementsByClassName('res');
+    
+    let outcomesContainer = document.querySelector('.outcomes');
+    let bottomSearch = document.getElementById('search');
+    let buscarText = document.getElementById('buscarText');
+    
+    if(value.length === 1){
+        outcomesContainer.style.display = 'none';
+
+    } else {
+        outcomesContainer.style.display = 'flex';
+        bottomSearch.style.backgroundColor = 'rgba(247,201,243,1)';
+        bottomSearch.style.border = '1 px solid rgba(17,0,56,1)';
+        bottomSearch.style.boxShadow = 'inset -1px -1px rgba(153,125,151,1), inset 1px 1px rgba(255,255,255,1)';
+
+        buscarText.style.color = 'rgba(17,0,56,1)';
+
+
+        lupaInactive.style.display= 'none';
+        lupa.style.display = 'block';
+        
+
+        for(let i = 0; i < 3; i++){
+            if(autocompleted.data[i].name){
+                outcome[i].innerText = autocompleted.data[i].name;
+                outcome[i].style.color = 'rgba(17,0,56,1)';
+                outcome[i].style.fontFamily = 'Chakra Petch, sans-serif';
+                outcome[i].style.padding= '6px 15px';
+                outcome[i].style.cursor = 'pointer';
+                
+            }
+        }
+    }
+    
+    
+}
 
