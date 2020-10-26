@@ -1,0 +1,25 @@
+div.outcomes {    
+    display: none;
+    //display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 160px;
+    background-color:rgba(180,180,180,1);
+    box-shadow: inset -2px -2px rgba(143,143,143,1), inset 2px 2px rgba(255,255,255,1);
+
+    .res{
+        width: 87%;
+        height: 34px;
+        background-color: rgba(204,204,204,1);
+        margin-left: 16px;
+        box-shadow: inset -2px -2px rgba(180,180,180,1), inset 2px 2px rgba(255,255,255,1);
+        border: 1px solid rgba(128,128,128,1);
+
+    }
+
+}
+
+.res:hover{
+    outline: $borderhover;
+}

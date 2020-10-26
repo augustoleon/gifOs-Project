@@ -1,0 +1,32 @@
+section.sugerencias {
+    .searchht{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 32px;
+        margin-top: 64px;
+        border: $borderbuscador;
+        box-shadow: $buscador;
+        background-color: white;
+        
+        
+        label {
+            font-size: $sizeheadbold; // No es bold, no prestar atención al nombre de la variable(en este caso)
+            font-family: $fontregular;
+            margin-left: 7px;
+            color: rgba(17,0,56,1);
+        }
+
+        .ht{
+            width: 85%;
+            //height: 100%;
+            outline: none;
+            border: none;
+            font-family: $fontregular;
+            font-size: $sizeheadbold;
+            margin-left: 5px;
+            color: $buttoncolor;
+        }
+        
+    }
+}

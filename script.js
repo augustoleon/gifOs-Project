@@ -17,14 +17,12 @@ lupaLight.style.display='none';
 let lupa = document.getElementById('lupa');
 lupa.style.display='none';
 
-
-
 // CIERRO LUPA
 
 
 // Ver data!
 // function getSearchResults(search) {}
-function getSearchOutcomes() {
+/*function getSearchOutcomes() {
     let search = document.getElementById('inputsearch');
     let value = search.value;
     let buttonSearch = document.getElementById('search');
@@ -42,7 +40,7 @@ function getSearchOutcomes() {
     return found;
 
 
-}
+}*/
     
 
 // Cambiar el tema
@@ -65,10 +63,18 @@ elegirTema.addEventListener('click', () =>{
 // Cuando el menú está expandido
 
 function changeTheme(){
+
+    let styles = document.getElementById('styles')
+
+    day.addEventListener('click', ()=> {
+        styles.href = './styles/styleDay.css'
+    })
     
     night.addEventListener('click', () => {
-        body.style.backgroundColor = 'rgba(17,0,56,1)';
+        styles.href = './styles/styleNight.css'
     })
+
+    
 }
 changeTheme();
 
@@ -182,22 +188,44 @@ async function showTrendings(limit=10){
 
 showTrendings();
 
-async function showSearch(limit=20){
+let bottomSearchGeneral = document.querySelector('.bottonsearch');
+bottomSearchGeneral.addEventListener('click', showSearch)
+let section = document.getElementById('section');
+section.style.display = 'none';
+
+async function showSearch(limit=6){
     //GRID
     let grid = document.getElementById('gridSearch');
+    let inputsearch = document.getElementById('inputsearch');
+    let qValue = inputsearch.value;
 
-    
+    //NONE
+    let suggs = document.querySelector('.sugerencias');
+    suggs.style.display ='none';
+    let trend = document.querySelector('.trend');
+    trend.style.display = 'none';
+
+    //outcomes
+    let outcomesContainer = document.querySelector('.outcomes');
+
+
     //fetch
-    let data = await fetch(`https://api.giphy.com/v1/gifs/search${apiKey}&limit=${limit}&q=cheeseburger`);
-    let trendings = await data.json();
-    console.log('trendings: ',trendings);
+    let data = await fetch(`https://api.giphy.com/v1/gifs/search${apiKey}&limit=${limit||6}&q=${qValue}`);
+    let search$ = await data.json();
+    console.log('search$: ',search$);
 
-    getGifs(trendings, grid);    
+    if(qValue.length > 5){
+        section.style.display = 'grid';
+        outcomesContainer.style.display ='none';
 
-    return trendings;
+    }
+
+    getGifs(search$, grid);    
+
+    return search$;
 }
 
-showSearch();
+// showSearch(6);
 
 
 // OUTCOMES 
@@ -228,7 +256,6 @@ async function showOutcomes() {
 
         buscarText.style.color = 'rgba(17,0,56,1)';
 
-
         lupaInactive.style.display= 'none';
         lupa.style.display = 'block';
         
@@ -247,4 +274,6 @@ async function showOutcomes() {
     
     
 }
+
+
 

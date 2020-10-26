@@ -1,0 +1,184 @@
+div.head { 
+    display: flex;
+    justify-content: left;
+    width: 100%;
+    height: 23px;
+    background-image: $bgheadlight;
+
+}
+.head p {
+    color: white;
+    width: 531px;
+    height: 16px;
+    font-family: $fontregular;
+    font-size:$sizehead;
+    margin: 4px 7px;
+
+}
+
+main.principal{
+
+    margin: 39px 140px 0px 100px;
+    
+    .misgifos {
+        display: flex;
+        justify-content: space-between;
+        height: 36px;
+        
+        // Buttons
+        .buttons {
+            display: flex;
+            align-items: center;
+
+            
+            a {
+                text-decoration: none;
+            }
+            
+            div {
+                // border: 1px solid rgba(17,0,56,1);
+                display: flex;  
+                justify-content: center;
+                align-items: center;
+                
+
+                
+            }
+            
+            @mixin buttonStyle() {
+                border: 1px solid rgba(17,0,56,1);
+                font-family: $fontregular;
+                font-size: $sizebutton;
+                color: $buttoncolor;
+                background-color: $buttonbg;
+                box-shadow: $buttonshadow;
+                width: 144px;
+                height: 36px;
+                cursor: pointer;
+                
+            } 
+            .bcrear{
+                margin-right: 16px;
+                @include buttonStyle();
+            }
+            .belegir{
+                @include buttonStyle();
+            }
+            .expandir {
+                display: flex;
+                flex-direction: column;
+                width: 180px;
+                position: relative;;
+                //z-index: 10;
+                margin-top: 102px;
+                cursor: pointer;
+                
+                
+                .theme {
+                    // border: 1px solid rgba(230,230,230,1);
+                    box-shadow: inset -2px -2px rgba(180,180,180,1), inset 2px 2px rgba(255,255,255,1);
+                    display: flex;
+                    flex-direction: column; 
+                    background-color: rgba(230,230,230,1);
+                    width: 100%;
+
+                    visibility: hidden;
+
+                    div{
+                        list-style-type: none;
+                        
+                        width: 150px;
+                        height: 36px;
+                        font-size: $sizebutton;
+                        font-family: $fontregular;
+                        color: $buttoncolor;
+                        justify-content: start;
+                        align-items: center;
+                        padding-left: 16px;
+                    }
+                    
+                    .sday {
+                        margin: 10px;
+                        background-color: rgba(255,244,253,1);
+                        border: 1px solid rgba(204,166,201,1);
+                        box-shadow: inset -1px -1px rgba(230,220,228,1), inset 1px 1px rgba(255,255,255,1);
+
+                        span {
+                            border-bottom: 1px solid rgba(17,0,56,1);
+                            margin-top: 1px;
+                        }
+                    }
+
+                    .snight {
+                        margin-bottom: 10px;
+                        background-color: rgba(240,240,240,1);
+                        border: 1px solid rgba(128,128,128,1);
+                        box-shadow: inset -1px -1px rgba(180,180,180,1), inset 1px 1px rgba(255,255,255,1);
+                    }
+                    
+                }
+            }
+            
+            p.gifos {
+                margin-left: 16px;
+                font-family: $fontregular;
+                font-size: $sizebutton;
+                color: $buttoncolor;
+                
+                
+            }
+            
+            p.gifos:hover {
+                width: 77px;
+                height: 32px;
+                outline: 1px dotted white;
+                cursor: pointer;
+                    span{
+                        border-bottom: 1px solid white;
+                    }
+            }
+                        
+            
+            .dropdown {
+                border: 1px solid rgba(17,0,56,1);
+                width: 36px;
+                height: 36px;
+                background-color: $buttonbg;
+                box-shadow: $buttonshadow;
+                border-left: none;
+                cursor: pointer;
+                
+            }
+        } 
+           
+        // Buttons:hover
+        @mixin buttonhoverandactive() {
+            outline: $borderhover;
+            background-color: $buttonbghover;
+            outline-offset: -4px;
+            
+            
+        }
+        .bcrear:hover {
+            @include buttonhoverandactive();
+        }
+        
+        .bcrear:active {
+            @include buttonhoverandactive();
+        }
+        .belegir:hover{
+            @include buttonhoverandactive();
+        }
+        .bcrear:active {
+            @include buttonhoverandactive();
+        }
+
+        .dropdown:hover {
+            @include buttonhoverandactive();
+        }
+
+        .dropdown:active {
+            @include buttonhoverandactive();
+        }
+    }
+}

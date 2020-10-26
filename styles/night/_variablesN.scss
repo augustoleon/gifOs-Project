@@ -1,0 +1,33 @@
+$bgheadlight:linear-gradient(to left, rgba(238,62,254,1),rgba(46,50,251,1));
+$fontregular: 'Chakra Petch', sans-serif;
+$sizehead: 12px;
+
+// BUTTON 
+$sizebutton: 16px;
+$buttoncolor: rgba(255,255,255,1);
+$buttonbg:rgba(238,62,254,1);
+$buttonshadow: inset -1px -1px rgba(167,44,179,1), inset 1px 1px rgba(255,255,255,1);
+
+// BUTTON HOVER
+$buttonbghover:rgba(206,54,219,1);
+$borderhover: 1px dotted rgba(17,0,56,1);
+
+// BOLD
+$sizeheadbold: 14px;
+$headcolorbold: rgba(255,255,255,1);
+
+// CARDS
+
+$bgcards: rgba(180,180,180,1);
+$shadowcards: inset -2px -2px rgba(143,143,143,1), inset 2px 2px rgba(255,255,255,1);
+
+// BUSCADOR SUGERENCIAS Y TENDENCIAS 
+
+$buscador: inset -2px -2px rgba(230,220,228,1), inset 2px 2px rgba(17,0,56,1);
+$borderbuscador: 1px solid rgba(46,50,251,1);
+
+// BUTTON VER MAS 
+
+$bgvermas: rgba(65,128,246,1);
+$bordervermas: 1px solid rgba(76,47,153,1);
+$insetvermas: inset -2px -2px rgba(40,79,153,1), inset 2px 2px rgba(255,255,255,1);

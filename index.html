@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gifOS</title>
-    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" id="styles" href="./styles/styleDay.css">
 </head>
 <body id="cuerpo">
 
@@ -24,7 +24,7 @@
 
             <div class="buttons">
                 <div class="bcrear">
-                    <a href="">Crear Guifos</a>
+                    <p>Crear Guifos</p>
                 </div>
                 <!-- Elegir Tema -->
                 <div class="expandir">
@@ -44,7 +44,7 @@
                     </div>
                 </div>
 
-                <p> <a href=""><span>M</span>is Guifos</a></p>
+                <p class="gifos"> <span>M</span>is Guifos</p>
             </div>
         </section>
 
@@ -57,11 +57,11 @@
                 <div class="searchbox">
                     <input type="text" id="inputsearch" class="buscador" placeholder="Busca gifs, hashtags, temas, busca lo que quieras…">
                 </div>
-                <div onclick="getSearchOutcomes()" class="bottonsearch" id="search">
+                <div class="bottonsearch" id="search">
                     <img src="./assets/lupa_inactive.svg" alt="lupa-inactive" id="lupaInactive">
                     <img src="./assets/lupa_light.svg" alt="lupa-light" id="lupaLight">
                     <img src="./assets/lupa.svg" alt="lupa" id="lupa">
-                    <a href="" id="buscarText">Buscar</a>
+                    <p id="buscarText">Buscar</p>
                 </div>
 
             </div>
@@ -109,7 +109,7 @@
         </section>
 
         <!-- TRENDING -->
-        <section>
+        <section class="trend">
             <div class="tendencia">
                 <label for="" class="trending">Tendencias:</label>
                 <!-- <input type="text" class="trendingview"> -->
@@ -129,9 +129,9 @@
         </section>
 
         <!-- SEARCH2 -->
-        <section>
+        <section id="section">
             <div class="tendencia">
-                <label for="" class="trending">Busqueda:</label>
+                <label for="" class="trending" id="resultados">Resultados:</label>
                 <!-- <input type="text" class="trendingview"> -->
             </div>
 

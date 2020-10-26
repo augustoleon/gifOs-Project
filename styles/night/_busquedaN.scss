@@ -10,7 +10,7 @@
         font-family: $fontregular;
         font-size: $sizeheadbold;
         color: $headcolorbold;
-        box-shadow: inset -2px 0px rgba(180,180,180,1), inset 2px 2px rgba(255,255,255,1);
+        box-shadow: inset -2px 0px  rgba(143,143,143,1), inset 2px 2px rgba(255,255,255,1);
 
         
         b {
@@ -44,7 +44,7 @@
                 border: none;
                 font-family: $fontregular;
                 font-size: $sizebutton;
-                color: $buttoncolor;
+                color: rgba(17,0,56,1);
                 outline: none;
             }
         }
@@ -54,7 +54,7 @@
             justify-content: space-evenly;
             width: 102px;
             height: 36px;
-            box-shadow: inset -1px -1px rgba(180,180,180,1), 1px 1px rgba(255,255,255,1);
+            box-shadow: inset -1px -1px rgba(180,180,180,1), inset 1px 1px rgba(255,255,255,1);
             border: 1px solid rgba(128,128,128,1);
             margin: 0px 18px 0px 8px;
 
@@ -64,7 +64,7 @@
                 cursor: pointer;
                 font-size: $sizebutton;
                 font-family: $fontregular;
-                color: rgba(180,180,180,1);
+                color:rgba(143,143,143,1);
             }
         }
     }

@@ -288,14 +288,14 @@ main.principal .misgifos .dropdown:active {
   margin: 0px 18px 0px 8px;
 }
 
-.search .busqueda .bottonsearch a {
+.search .busqueda .bottonsearch p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  text-decoration: none;
+  cursor: pointer;
   font-size: 16px;
   font-family: "Chakra Petch", sans-serif;
   color: #b4b4b4;
@@ -759,4 +759,4 @@ div.outcomes .res {
   margin: 0px;
   padding: 0px;
 }
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=styleDay.css.map */
