@@ -128,8 +128,6 @@ function getGifs(trendings, section){
     
     
     for( gifs of trendings.data){
-        //console.log('console.log(gifs): ',gifs);
-        
     
         // Container
         let cardTrending = document.createElement('div');
@@ -166,6 +164,7 @@ function getGifs(trendings, section){
         cardText.appendChild(textTrending)
         
         console.log('section:', section);
+
         section.appendChild(cardTrending);
         
     }
@@ -179,7 +178,7 @@ async function showTrendings(limit=10){
     //fetch
     let data = await fetch(`https://api.giphy.com/v1/gifs/trending${apiKey}&limit=${limit}&rating=g`);
     let trendings = await data.json();
-    console.log('trendings: ',trendings);
+    // console.log('trendings: ',trendings);
 
     getGifs(trendings, grid);    
 
@@ -192,12 +191,12 @@ let bottomSearchGeneral = document.querySelector('.bottonsearch');
 bottomSearchGeneral.addEventListener('click', showSearch)
 let section = document.getElementById('section');
 section.style.display = 'none';
+let inputsearch = document.getElementById('inputsearch');
+let qValue = '';
 
-async function showSearch(limit=6){
+async function showSearch(){
     //GRID
     let grid = document.getElementById('gridSearch');
-    let inputsearch = document.getElementById('inputsearch');
-    let qValue = inputsearch.value;
 
     //NONE
     let suggs = document.querySelector('.sugerencias');
@@ -210,11 +209,15 @@ async function showSearch(limit=6){
 
 
     //fetch
-    let data = await fetch(`https://api.giphy.com/v1/gifs/search${apiKey}&limit=${limit||6}&q=${qValue}`);
+    let data = await fetch(`https://api.giphy.com/v1/gifs/search${apiKey}&limit=10&q=${qValue}`);
     let search$ = await data.json();
-    console.log('search$: ',search$);
 
-    if(qValue.length > 5){
+    // Limpiar la busqueda con el nuevo input
+    while(grid.hasChildNodes()){
+        grid.lastChild.remove();
+    }
+
+    if(qValue.length > 1){
         section.style.display = 'grid';
         outcomesContainer.style.display ='none';
 
@@ -225,18 +228,15 @@ async function showSearch(limit=6){
     return search$;
 }
 
-// showSearch(6);
-
-
 // OUTCOMES 
-let qSearch = document.getElementById('inputsearch');
-qSearch.addEventListener('keydown', showOutcomes);
+inputsearch.addEventListener('keyup', showOutcomes);
 
 async function showOutcomes() {
-    let value = qSearch.value;
-    let data = await fetch(`https://api.giphy.com/v1/gifs/search/tags${apiKey}&q=${value}`);
+    
+    qValue = inputsearch.value;
+
+    let data = await fetch(`https://api.giphy.com/v1/gifs/search/tags${apiKey}&q=${qValue}`);
     let autocompleted = await data.json();
-    console.log('Autocompleted:', autocompleted);
 
     //Cuando llamas por clases te trae un array
     let outcome = document.getElementsByClassName('res');
@@ -245,7 +245,7 @@ async function showOutcomes() {
     let bottomSearch = document.getElementById('search');
     let buscarText = document.getElementById('buscarText');
     
-    if(value.length === 1){
+    if(qValue.length === 1){
         outcomesContainer.style.display = 'none';
 
     } else {
@@ -258,20 +258,26 @@ async function showOutcomes() {
 
         lupaInactive.style.display= 'none';
         lupa.style.display = 'block';
-        
 
         for(let i = 0; i < 3; i++){
-            if(autocompleted.data[i].name){
+            if(autocompleted.data[i]){
                 outcome[i].innerText = autocompleted.data[i].name;
                 outcome[i].style.color = 'rgba(17,0,56,1)';
                 outcome[i].style.fontFamily = 'Chakra Petch, sans-serif';
                 outcome[i].style.padding= '6px 15px';
                 outcome[i].style.cursor = 'pointer';
-                
+
+                outcome[i].addEventListener('click',() =>{
+                    
+                    qValue = autocompleted.data[i].name;
+                    // value = autocompleted.data[i].name;
+                    inputsearch.value = autocompleted.data[i].name;
+                    showSearch();
+                    
+                })                
             }
         }
-    }
-    
+    }   
     
 }
 
