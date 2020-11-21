@@ -69,17 +69,16 @@ main.principal{
                 flex-direction: column;
                 width: 180px;
                 position: relative;;
-                //z-index: 10;
                 margin-top: 102px;
                 cursor: pointer;
                 
                 
                 .theme {
                     // border: 1px solid rgba(230,230,230,1);
-                    box-shadow: inset -2px -2px rgba(180,180,180,1), inset 2px 2px rgba(255,255,255,1);
+                    box-shadow: inset -2px -2px rgba(143,143,143,1), inset 2px 2px rgba(255,255,255,1);
                     display: flex;
                     flex-direction: column; 
-                    background-color: rgba(230,230,230,1);
+                    background-color: rgba(180,180,180,1);
                     width: 100%;
 
                     visibility: hidden;
@@ -99,21 +98,24 @@ main.principal{
                     
                     .sday {
                         margin: 10px;
-                        background-color: rgba(255,244,253,1);
-                        border: 1px solid rgba(204,166,201,1);
-                        box-shadow: inset -1px -1px rgba(230,220,228,1), inset 1px 1px rgba(255,255,255,1);
+                        color: rgba(17,0,56,1);
+                        background-color: rgba(204,204,204,1);
+                        border: 1px solid rgba(128,128,128,1);
+                        box-shadow: inset -1px -1px rgba(180,180,180,1), inset 1px 1px rgba(255,255,255,1);
 
-                        span {
-                            border-bottom: 1px solid rgba(17,0,56,1);
-                            margin-top: 1px;
-                        }
+                        
                     }
 
                     .snight {
                         margin-bottom: 10px;
-                        background-color: rgba(240,240,240,1);
-                        border: 1px solid rgba(128,128,128,1);
-                        box-shadow: inset -1px -1px rgba(180,180,180,1), inset 1px 1px rgba(255,255,255,1);
+                        background-color: rgba(46,50,251,1);
+                        border: 1px solid rgba(51,53,143,0.2);
+                        box-shadow: inset -1px -1px rgba(230,220,228,1), inset 1px 1px rgba(255,255,255,1);
+
+                        span {
+                            border-bottom: 1px solid rgba(255,255,255,1);
+                            margin-top: 1px;
+                        }
                     }
                     
                 }

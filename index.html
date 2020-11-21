@@ -18,12 +18,14 @@
     <main class="principal">
         <section class="misgifos">
             <div>
-                <img src="./assets/gifOF_logo.png" alt="gifOF_logo">
-
+                <img src="./assets/arrow.svg" alt="arrow" id="arrow">
+                <img src="./assets/gifOF_logo.png" alt="gifOF_logo" id="logoDay">
+                <img src="./assets/gifOF_logo_dark.png" alt="gifOFDark_logo" id="logoNight">
+                
             </div>
 
             <div class="buttons">
-                <div class="bcrear">
+                <div class="bcrear" id="buttoncreate">
                     <p>Crear Guifos</p>
                 </div>
                 <!-- Elegir Tema -->
@@ -148,6 +150,50 @@
             </div> -->
         </section>
 
+        <!-- AVISO PARA PERMITIR CREAR GIFOS -->
+        
+        <section id="permisos" class="permisos">
+            <div id="permisosContainer" class="permisos-container">
+                <div class="barraHeader">
+                    <p><b>Crear Guifos</b></p>
+                </div>
+                <div class="aquiPodras">
+                    <img src="./assets/window img.png" alt="">
+                    <p><b>Aquí podrás crear tus propios guifos</b></p>
+                </div>
+                <div class="indicaciones">
+                    <p>Crear tu <b><i>guifo</i></b> es muy fácil, graba cualquier imagen con tu cámara y obtén guifos personalizados. Los pasos para crear tu guifo son:</p>
+                    <p><b>1)</b> Dar permisos de acceso a la cámara (sólo por el tiempo de uso)</p>
+                    <p><b>2)</b> Capturar tu momento guifo</p>
+                    <p><b>3)</b> Revisar el momento</p>
+                    <p><b>4)</b> Listo para subir y compartir!</p>
+                    <p>¿Quieres comenzar a crear tu guifo ahora?</p>
+
+                </div>
+                <div class="cancelstart">
+                    <div class="cancel"><p>Cancelar</p></div>
+                    <div class="start"><p>Comenzar</p></div>             
+
+                </div>
+
+            </div>
+        </section>
+
+        <section class="sectionVideo">
+            <div id="containerVideobox" class="containerVideobox">
+                <div class="headerVideo">
+                    <p> <b>Un Chequeo Antes de Empezar</b></p>
+                    <img src="./assets/close.svg" alt="">
+                </div>
+                <div class="containerVideo">
+                    <video id="video" class="video" ></video>
+                </div> 
+                <div class="capture" id="capture">
+                    <div class="imgCamera"><img src="./assets/camera.svg" alt=""></div>
+                    <div class="textCapture"><p>Capturar</p></div>
+                </div>      
+            </div>
+        </section>
         
 
     </main>

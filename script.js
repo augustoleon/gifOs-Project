@@ -6,7 +6,7 @@ const apiKey = '?api_key=gEmKkzAqvny1uF7Kng6ePeab0sPCfD2G';
 const day = document.getElementById('day');
 const night = document.getElementById('night');
 const body = document.getElementById('cuerpo');
-let url = 'http://api.giphy.com/v1/gifs/search';
+// let url = 'http://api.giphy.com/v1/gifs/search';
 
 //ABRO LUPA
 let lupaInactive = document.getElementById('lupaInactive');
@@ -46,8 +46,12 @@ lupa.style.display='none';
 // Cambiar el tema
 const elegirTema = document.getElementById('elegirTema');
 const tema = document.getElementById('tema');
+let logoDay = document.getElementById('logoDay');
+let logoNight = document.getElementById('logoNight');
+logoNight.style.display = 'none';
 let clicks = 0;
 
+//////////// Expandimos la barra de temas /////////////////
 elegirTema.addEventListener('click', () =>{
     
     if(clicks % 2 == 0){
@@ -58,20 +62,34 @@ elegirTema.addEventListener('click', () =>{
         tema.style.visibility= 'hidden';        
     }
     clicks++
+
 });
 
-// Cuando el menú está expandido
+//////////// Ajustamos iteración cuando se presione el click en los temas /////////////////
 
 function changeTheme(){
 
-    let styles = document.getElementById('styles')
+    let styles = document.getElementById('styles');
+    
 
     day.addEventListener('click', ()=> {
-        styles.href = './styles/styleDay.css'
+        styles.href = './styles/styleDay.css';
+        tema.style.visibility= 'hidden';  
+        logoNight.style.display = 'none';
+        logoDay.style.display = 'block';
+
+        clicks = 0;
+
     })
     
     night.addEventListener('click', () => {
-        styles.href = './styles/styleNight.css'
+        styles.href = './styles/styleNight.css';
+        tema.style.visibility= 'hidden'; 
+        logoDay.style.display = 'none';
+        logoNight.style.display = 'block';
+
+        clicks = 0;
+
     })
 
     
@@ -84,6 +102,7 @@ function getRandomInt(min, max) {
 }
 
 // SHOW GIFS
+//// Nos muestra de manera random las sugerencias del momento ///////
 async function showGifSuggestion(){
     //NÚMEROS RANDOM
     let random1 = getRandomInt(0,6);
@@ -124,11 +143,13 @@ async function showGifSuggestion(){
 
 showGifSuggestion();
 
+///////////// Obtenemos los gifs en un array dentro de Grid ////////////////
+
 function getGifs(trendings, section){
     
     
     for( gifs of trendings.data){
-    
+            
         // Container
         let cardTrending = document.createElement('div');
         cardTrending.setAttribute('class','cardTrending');
@@ -171,6 +192,8 @@ function getGifs(trendings, section){
     
 }
 
+////////////////// Muestra las tendencias ///////////////////////////
+
 async function showTrendings(limit=10){
     //GRID
     let grid = document.getElementById('gridTrendings');
@@ -187,8 +210,12 @@ async function showTrendings(limit=10){
 
 showTrendings();
 
+/////// Muestra la busqueda sugerida dentro del input y nos arroja un array de gifs /////
+
 let bottomSearchGeneral = document.querySelector('.bottonsearch');
-bottomSearchGeneral.addEventListener('click', showSearch)
+/////// EVENTO DEL BOTON ///////////////
+bottomSearchGeneral.addEventListener('click', showSearch);
+
 let section = document.getElementById('section');
 section.style.display = 'none';
 let inputsearch = document.getElementById('inputsearch');
@@ -197,38 +224,44 @@ let qValue = '';
 async function showSearch(){
     //GRID
     let grid = document.getElementById('gridSearch');
-
-    //NONE
-    let suggs = document.querySelector('.sugerencias');
-    suggs.style.display ='none';
-    let trend = document.querySelector('.trend');
-    trend.style.display = 'none';
-
-    //outcomes
-    let outcomesContainer = document.querySelector('.outcomes');
-
-
-    //fetch
-    let data = await fetch(`https://api.giphy.com/v1/gifs/search${apiKey}&limit=10&q=${qValue}`);
-    let search$ = await data.json();
-
-    // Limpiar la busqueda con el nuevo input
-    while(grid.hasChildNodes()){
-        grid.lastChild.remove();
+    //Input
+    let inputAux = document.getElementById('inputsearch');
+    
+    console.log(inputAux.value)
+    if(inputAux.value != ''){
+        //NONE
+        let suggs = document.querySelector('.sugerencias');
+        suggs.style.display ='none';
+        let trend = document.querySelector('.trend');
+        trend.style.display = 'none';
+    
+        //outcomes
+        let outcomesContainer = document.querySelector('.outcomes');
+    
+    
+        //fetch
+        let data = await fetch(`https://api.giphy.com/v1/gifs/search${apiKey}&limit=10&q=${qValue}`);
+        let search$ = await data.json();
+    
+        // Limpiar la busqueda cuando hacemos search con un nuevo input
+        while(grid.hasChildNodes()){
+            grid.lastChild.remove();
+        }
+    
+        if(qValue.length > 1){
+            section.style.display = 'grid';
+            outcomesContainer.style.display ='none';
+    
+        }
+    
+        getGifs(search$, grid);    
+    
+        return search$;
     }
-
-    if(qValue.length > 1){
-        section.style.display = 'grid';
-        outcomesContainer.style.display ='none';
-
-    }
-
-    getGifs(search$, grid);    
-
-    return search$;
 }
 
 // OUTCOMES 
+////// Nos muestra sugerencias/autocompletados mientras escribimos dentro del input////////
 inputsearch.addEventListener('keyup', showOutcomes);
 
 async function showOutcomes() {
@@ -245,7 +278,7 @@ async function showOutcomes() {
     let bottomSearch = document.getElementById('search');
     let buscarText = document.getElementById('buscarText');
     
-    if(qValue.length === 1){
+    if(qValue.length === 0){
         outcomesContainer.style.display = 'none';
 
     } else {
@@ -281,5 +314,97 @@ async function showOutcomes() {
     
 }
 
+/////////////////// Presionar el boton de crear Guifos ////////////////
 
+let crearGuifos = document.getElementById('buttoncreate');
+let permisos = document.getElementById('permisos');
+permisos.style.display ='none';
+
+let arrow = document.getElementById('arrow');
+arrow.style.display = 'none';
+arrow.style.cursor = 'pointer';
+
+crearGuifos.addEventListener('click', clickCreate);
+
+function clickCreate(){
+    permisos.style.display ='flex';
+    document.querySelector('.trend').style.display = 'none';
+    document.querySelector('.sugerencias').style.display = 'none';
+    document.querySelector('.search').style.display = 'none';
+    document.querySelector('.buttons').style.display = 'none';
+
+    arrow.style.display = 'inline-block';
+    arrow.style.marginBottom = '10px';
+
+}
+
+arrow.addEventListener('click', ()=> {
+
+    // HEADER
+    document.querySelector('.sugerencias').style.display = 'block';
+    document.querySelector('.search').style.display = 'inline-block';
+    document.querySelector('.buttons').style.display = 'flex';
+
+    // TREND
+    document.querySelector('.trend').style.display = 'inline-block';
+    document.querySelector('.trend').style.marginTop = '-60px';
+
+    // ARROW
+    arrow.style.display = 'none';
+
+    // PERMISOS
+    document.querySelector('.permisos').style.display = 'none';
+
+    // Camara encendida
+
+    cameraOff()
+})
+
+
+
+///////// Encender la cámara /////////////////////
+
+const video = document.getElementById('video');
+const comenzar = document.querySelector('.start');
+// section del video
+const sectionVideo = document.querySelector('.sectionVideo');
+sectionVideo.style.display = 'none';
+comenzar.addEventListener('click', cameraOn)
+
+function cameraOn(){
+    sectionVideo.style.display = 'flex';
+    permisos.style.display = 'none'
+    
+    navigator.mediaDevices.getUserMedia({
+        audio: false,
+        video: {    
+            height: { max: 434 },
+            width: { ideal: 880  }
+        }
+    }).then(stream =>{
+        
+        video.srcObject = stream;
+        video.play();
+        
+    }).catch(console.error)
+}
+//////////// Apagar la camara ////////////////7
+function cameraOff(){
+    
+    sectionVideo.style.display = 'none';
+    
+    let tracks = video.srcObject.getTracks();
+    
+    tracks.forEach(track => track.stop());
+    
+    video.srcObject = null;
+}
+
+// permisos.style.display ='flex';
+// document.querySelector('.trend').style.display = 'none';
+// document.querySelector('.sugerencias').style.display = 'none';
+// document.querySelector('.search').style.display = 'none';
+// document.querySelector('.buttons').style.display = 'none';
+
+// document.querySelector('.permisos').style.display = 'none';
 

@@ -60,6 +60,7 @@ main.principal{
             .bcrear{
                 margin-right: 16px;
                 @include buttonStyle();
+
             }
             .belegir{
                 @include buttonStyle();
@@ -69,7 +70,6 @@ main.principal{
                 flex-direction: column;
                 width: 180px;
                 position: relative;;
-                //z-index: 10;
                 margin-top: 102px;
                 cursor: pointer;
                 
@@ -119,16 +119,23 @@ main.principal{
                 }
             }
             
-            p {
+            p.gifos {
                 margin-left: 16px;
                 font-family: $fontregular;
                 font-size: $sizebutton;
                 color: $buttoncolor;
                 
-                span{
-                    border-bottom: 1px solid rgba(17,0,56,1);
-                }
-                          
+                
+            }
+            
+            p.gifos:hover {
+                width: 77px;
+                height: 32px;
+                outline: 1px dotted rgba(17,0,56,1);
+                cursor: pointer;
+                    span{
+                        border-bottom: 1px solid rgba(17,0,56,1);
+                    }
             }
                         
             

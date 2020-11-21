@@ -1,0 +1,109 @@
+.sectionVideo {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    
+    .containerVideobox{
+        width: 860px;
+        height: 548px;
+        background-color: $bgcards;
+
+        box-shadow: $shadowcards;
+        
+        .headerVideo{
+            background-image: $bgheadlight;
+            box-shadow: inset -2px 0px rgba(180,180,180,1), inset 2px 0px rgba(255,255,255,1); 
+            height: 24px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+    
+            p{
+                margin-left: 6px;
+                color: $headcolorbold;
+                font-family: $fontregular;
+                font-size: $sizeheadbold;
+            }
+
+            img{
+                margin-right: 14px;
+            }
+        }
+
+        .containerVideo{
+            margin-left: 12px;
+            margin-top: 10px;
+            border: 1px solid rgba(151,151,151,1);
+            width: 832px;
+            height: 434px;
+
+            background-color: white;
+            box-shadow: inset -2px -2px rgba(230,230,230,1), inset 2px 2px rgba(0,0,0,1);
+
+            .video{
+                height: 428px;
+                width: 826px;
+                margin: 2px 0px 0px 2px;
+                object-fit: inherit;
+            }
+
+        }
+
+        .capture{
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 21px;
+
+
+            .imgCamera{
+                width: 36px;
+                height: 36px;
+                border: 1px solid $buttoncolor;
+                background-color: $buttonbg;
+                box-shadow: $buttonshadow;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                cursor: pointer;
+            }
+
+            .textCapture{
+                width: 144px;
+                height: 36px;
+                border: 1px solid $buttoncolor;
+                margin-right: 16px;
+                background-color: $buttonbg;
+                box-shadow: $buttonshadow;
+                border-left: none;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                cursor: pointer;
+
+                p{
+                    font-family: $fontregular;
+                    font-size: $sizebutton;
+                }
+            }
+
+            .imgCamera:hover {
+                outline: $borderhover;
+                background-color: $buttonbghover;
+                outline-offset: -4px;
+
+            }
+
+            .textCapture:hover {
+                outline: $borderhover;
+                background-color: $buttonbghover;
+                outline-offset: -4px;
+
+            }
+        }
+    }
+}

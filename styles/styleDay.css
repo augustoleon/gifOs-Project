@@ -153,14 +153,21 @@ main.principal .misgifos .buttons .expandir .theme .snight {
           box-shadow: inset -1px -1px #b4b4b4, inset 1px 1px white;
 }
 
-main.principal .misgifos .buttons p {
+main.principal .misgifos .buttons p.gifos {
   margin-left: 16px;
   font-family: "Chakra Petch", sans-serif;
   font-size: 16px;
   color: #110038;
 }
 
-main.principal .misgifos .buttons p span {
+main.principal .misgifos .buttons p.gifos:hover {
+  width: 77px;
+  height: 32px;
+  outline: 1px dotted #110038;
+  cursor: pointer;
+}
+
+main.principal .misgifos .buttons p.gifos:hover span {
   border-bottom: 1px solid #110038;
 }
 
@@ -751,6 +758,273 @@ div.outcomes .res {
 
 .res:hover {
   outline: 1px dotted #110038;
+}
+
+section.permisos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 100px 0px 100px;
+}
+
+section.permisos div.permisos-container {
+  width: 684px;
+  height: 386px;
+  background-color: #e6e6e6;
+  -webkit-box-shadow: inset -2px -2px #b4b4b4, inset 2px 2px white;
+          box-shadow: inset -2px -2px #b4b4b4, inset 2px 2px white;
+}
+
+section.permisos div.permisos-container .barraHeader {
+  background-image: -webkit-gradient(linear, right top, left top, from(#f7c9f3), to(#4180f6));
+  background-image: linear-gradient(to left, #f7c9f3, #4180f6);
+  -webkit-box-shadow: inset -2px 0px #b4b4b4, inset 2px 0px white;
+          box-shadow: inset -2px 0px #b4b4b4, inset 2px 0px white;
+}
+
+section.permisos div.permisos-container .barraHeader p {
+  color: white;
+  font-size: 14px;
+  font-family: "Chakra Petch", sans-serif;
+  margin-left: 6px;
+}
+
+section.permisos div.permisos-container .aquiPodras {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  font-size: 16px;
+  font-family: "Chakra Petch", sans-serif;
+  padding-top: 30px;
+}
+
+section.permisos div.permisos-container .aquiPodras img {
+  margin-left: 25px;
+}
+
+section.permisos div.permisos-container .aquiPodras p {
+  margin-left: 16px;
+  color: #110038;
+}
+
+section.permisos div.permisos-container .indicaciones {
+  width: 518px;
+  height: 190px;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 14px;
+  color: #110038;
+  margin-left: 73px;
+  margin-top: 16px;
+}
+
+section.permisos div.permisos-container .indicaciones p {
+  margin-bottom: 10px;
+}
+
+section.permisos div.permisos-container .cancelstart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+section.permisos div.permisos-container .cancelstart .cancel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 134px;
+  height: 36px;
+  border: 1px solid #110038;
+  margin-top: 24px;
+  margin-right: 16px;
+  background-color: #fff4fd;
+}
+
+section.permisos div.permisos-container .cancelstart .cancel p {
+  font-family: "Chakra Petch", sans-serif;
+  color: #110038;
+}
+
+section.permisos div.permisos-container .cancelstart .start {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 134px;
+  height: 36px;
+  border: 1px solid #110038;
+  margin-top: 24px;
+  margin-right: 36px;
+  background-color: #f7c9f3;
+}
+
+section.permisos div.permisos-container .cancelstart .start p {
+  font-family: "Chakra Petch", sans-serif;
+  color: #110038;
+}
+
+section.permisos div.permisos-container .cancelstart .cancel:hover {
+  outline: 1px dotted #110038;
+  background-color: #f3e6e6;
+  outline-offset: -4px;
+}
+
+section.permisos div.permisos-container .cancelstart .start:hover {
+  outline: 1px dotted #110038;
+  background-color: #e6bbe2;
+  outline-offset: -4px;
+}
+
+.sectionVideo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 100px;
+}
+
+.sectionVideo .containerVideobox {
+  width: 860px;
+  height: 548px;
+  background-color: #e6e6e6;
+  -webkit-box-shadow: inset -2px -2px #b4b4b4, inset 2px 2px white;
+          box-shadow: inset -2px -2px #b4b4b4, inset 2px 2px white;
+}
+
+.sectionVideo .containerVideobox .headerVideo {
+  background-image: -webkit-gradient(linear, right top, left top, from(#f7c9f3), to(#4180f6));
+  background-image: linear-gradient(to left, #f7c9f3, #4180f6);
+  -webkit-box-shadow: inset -2px 0px #b4b4b4, inset 2px 0px white;
+          box-shadow: inset -2px 0px #b4b4b4, inset 2px 0px white;
+  height: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sectionVideo .containerVideobox .headerVideo p {
+  margin-left: 6px;
+  color: white;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 14px;
+}
+
+.sectionVideo .containerVideobox .headerVideo img {
+  margin-right: 14px;
+}
+
+.sectionVideo .containerVideobox .containerVideo {
+  margin-left: 12px;
+  margin-top: 10px;
+  border: 1px solid #979797;
+  width: 832px;
+  height: 434px;
+  background-color: white;
+  -webkit-box-shadow: inset -2px -2px #e6e6e6, inset 2px 2px black;
+          box-shadow: inset -2px -2px #e6e6e6, inset 2px 2px black;
+}
+
+.sectionVideo .containerVideobox .containerVideo .video {
+  height: 428px;
+  width: 826px;
+  margin: 2px 0px 0px 2px;
+  -o-object-fit: inherit;
+     object-fit: inherit;
+}
+
+.sectionVideo .containerVideobox .capture {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-top: 21px;
+}
+
+.sectionVideo .containerVideobox .capture .imgCamera {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #110038;
+  background-color: #f7c9f3;
+  -webkit-box-shadow: inset -1px -1px #997d97, inset 1px 1px white;
+          box-shadow: inset -1px -1px #997d97, inset 1px 1px white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.sectionVideo .containerVideobox .capture .textCapture {
+  width: 144px;
+  height: 36px;
+  border: 1px solid #110038;
+  margin-right: 16px;
+  background-color: #f7c9f3;
+  -webkit-box-shadow: inset -1px -1px #997d97, inset 1px 1px white;
+          box-shadow: inset -1px -1px #997d97, inset 1px 1px white;
+  border-left: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.sectionVideo .containerVideobox .capture .textCapture p {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 16px;
+}
+
+.sectionVideo .containerVideobox .capture .imgCamera:hover {
+  outline: 1px dotted #110038;
+  background-color: #e6bbe2;
+  outline-offset: -4px;
+}
+
+.sectionVideo .containerVideobox .capture .textCapture:hover {
+  outline: 1px dotted #110038;
+  background-color: #e6bbe2;
+  outline-offset: -4px;
 }
 
 * {

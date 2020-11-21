@@ -1,0 +1,109 @@
+section.permisos {
+    display: flex;
+    justify-content: center;
+    
+    margin: 100px 0px 100px;
+
+    div.permisos-container {
+        width: 684px;
+        height: 386px;
+        background-color: rgba(230,230,230,1);
+        
+        box-shadow: $shadowcards;
+        
+        .barraHeader {
+            background-image: $bgheadlight;
+
+            box-shadow: inset -2px 0px rgba(180,180,180,1), inset 2px 0px rgba(255,255,255,1);
+            
+            p{
+                color: $headcolorbold;
+                font-size: $sizeheadbold;
+                font-family: $fontregular;
+                margin-left: 6px;
+            }
+        }
+
+        .aquiPodras {
+            display: flex;
+            flex-direction: row;
+            font-size: $sizebutton;
+            font-family: $fontregular;
+            padding-top: 30px;;
+
+            img{
+                margin-left: 25px;
+
+            }
+            
+            p{
+                margin-left: 16px;
+                color: $buttoncolor;
+
+            }
+        }
+
+        .indicaciones {
+            width: 518px;
+            height: 190px;
+            font-family: $fontregular;
+            font-size: $sizeheadbold;
+            color: $buttoncolor;
+            margin-left: 73px;
+            margin-top: 16px;
+
+
+            p{
+                margin-bottom: 10px;
+            }
+
+        }
+
+        .cancelstart {
+            display: flex;
+
+            justify-content: flex-end;
+
+            @mixin buttonStyle(){
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 134px;
+                height: 36px;
+                border: 1px solid rgba(17,0,56,1);
+                margin-top: 24px;
+                
+                
+                
+                p{
+                    font-family: $fontregular;
+                    color: $buttoncolor;
+                }
+                
+            }
+            .cancel {
+                @include buttonStyle();
+                margin-right: 16px;
+                background-color: rgba(255,244,253,1);
+            }
+
+            .start {
+                @include buttonStyle();
+                margin-right: 36px;
+                background-color: rgba(247,201,243,1);
+            }
+
+            .cancel:hover{
+                outline: $borderhover;
+                background-color: rgb(243, 230, 230);
+                outline-offset: -4px;
+            }
+            .start:hover{
+                outline: $borderhover;
+                background-color: $buttonbghover;
+                outline-offset: -4px;   
+            }
+        }
+        
+    }
+}

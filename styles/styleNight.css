@@ -102,8 +102,8 @@ main.principal .misgifos .buttons .expandir {
 }
 
 main.principal .misgifos .buttons .expandir .theme {
-  -webkit-box-shadow: inset -2px -2px #b4b4b4, inset 2px 2px white;
-          box-shadow: inset -2px -2px #b4b4b4, inset 2px 2px white;
+  -webkit-box-shadow: inset -2px -2px #8f8f8f, inset 2px 2px white;
+          box-shadow: inset -2px -2px #8f8f8f, inset 2px 2px white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -111,7 +111,7 @@ main.principal .misgifos .buttons .expandir .theme {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: #e6e6e6;
+  background-color: #b4b4b4;
   width: 100%;
   visibility: hidden;
 }
@@ -134,23 +134,24 @@ main.principal .misgifos .buttons .expandir .theme div {
 
 main.principal .misgifos .buttons .expandir .theme .sday {
   margin: 10px;
-  background-color: #fff4fd;
-  border: 1px solid #cca6c9;
-  -webkit-box-shadow: inset -1px -1px #e6dce4, inset 1px 1px white;
-          box-shadow: inset -1px -1px #e6dce4, inset 1px 1px white;
-}
-
-main.principal .misgifos .buttons .expandir .theme .sday span {
-  border-bottom: 1px solid #110038;
-  margin-top: 1px;
+  color: #110038;
+  background-color: #cccccc;
+  border: 1px solid gray;
+  -webkit-box-shadow: inset -1px -1px #b4b4b4, inset 1px 1px white;
+          box-shadow: inset -1px -1px #b4b4b4, inset 1px 1px white;
 }
 
 main.principal .misgifos .buttons .expandir .theme .snight {
   margin-bottom: 10px;
-  background-color: #f0f0f0;
-  border: 1px solid gray;
-  -webkit-box-shadow: inset -1px -1px #b4b4b4, inset 1px 1px white;
-          box-shadow: inset -1px -1px #b4b4b4, inset 1px 1px white;
+  background-color: #2e32fb;
+  border: 1px solid rgba(51, 53, 143, 0.2);
+  -webkit-box-shadow: inset -1px -1px #e6dce4, inset 1px 1px white;
+          box-shadow: inset -1px -1px #e6dce4, inset 1px 1px white;
+}
+
+main.principal .misgifos .buttons .expandir .theme .snight span {
+  border-bottom: 1px solid white;
+  margin-top: 1px;
 }
 
 main.principal .misgifos .buttons p.gifos {
