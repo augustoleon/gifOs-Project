@@ -400,11 +400,100 @@ function cameraOff(){
     video.srcObject = null;
 }
 
-// permisos.style.display ='flex';
-// document.querySelector('.trend').style.display = 'none';
-// document.querySelector('.sugerencias').style.display = 'none';
-// document.querySelector('.search').style.display = 'none';
-// document.querySelector('.buttons').style.display = 'none';
+permisos.style.display ='flex';
+document.querySelector('.trend').style.display = 'none';
+document.querySelector('.sugerencias').style.display = 'none';
+document.querySelector('.search').style.display = 'none';
+document.querySelector('.buttons').style.display = 'none';
 
-// document.querySelector('.permisos').style.display = 'none';
+document.querySelector('.permisos').style.display = 'none';
 
+/////// MIENTRAS ARREGLO EL SECTION VIDEO Y LOS BOTONES ////////////////
+sectionVideo.style.display = 'block'
+
+
+////////////// Creamos el Recorder //////////////////
+
+let recorder = null;
+let recorderVideo = null;
+let blob = null;
+let blobVideo = null;
+
+async function startRecording(){
+    
+    let stream = await navigator.mediaDevices.getUserMedia({video: true, audio: false});
+    recorder = new RecordRTCPromisesHandler(stream, {
+        type: 'gif',
+        frameRate: 1,
+        quality: 10,
+        width: 360,
+        hidden: 240,
+        onGifRecordingStarted: function() {
+        console.log('started')
+        },
+    });
+
+    recorderVideo = new RecordRTCPromisesHandler(stream, {
+        type: 'video',
+        frameRate: 1,
+        quality: 10,
+        width: 360,
+        hidden: 240,
+        onGifRecordingStarted: function() {
+        console.log('started')
+        },
+    });
+
+    recorder.startRecording();
+    recorderVideo.startRecording();
+
+    /// Cambiamos los estilos del boton CAPTURAR ////
+
+    capturar.style.backgroundColor = 'rgba(255,97,97,1)';
+    capturar.style.color = 'white';
+    capturar.innerText = 'Listo';
+    capturar.style.fontFamily ='ChakraPetch-Regular';
+
+    let img = document.querySelector('.imgCamera');
+    let iconCamera = document.getElementById('iconCamera');
+    img.style.backgroundColor = 'rgba(255,97,97,1)';
+
+    iconCamera.setAttribute('src', './assets/recording.svg');
+
+    // capturar.styles.boxShadow = 'inset -1px -1px rgba(153,58,58,1), inset 1px 1px rgba(255,255,255,1)';
+    // img.styles.boxShadow = 'inset -1px -1px rgba(153,58,58,1), inset 1px 1px rgba(255,255,255,1)'; 
+
+
+}
+
+async function stopRecording(){
+    
+    const sleep = m => new Promise(r => setTimeout(r, m));
+    await sleep(3000);
+
+    await recorder.stopRecording();
+    await recorderVideo.stopRecording();
+
+    blob = await recorder.getBlob();
+    blobVideo = await recorderVideo.getBlob();
+    // invokeSaveAsDialog(blob);
+
+    console.log('stoped');
+    // console.log(blob);
+
+}
+
+
+
+let capturar = document.querySelector('.textCapture');
+
+capturar.addEventListener('click', () => {
+
+    if(clicks % 2 == 0){
+        startRecording();
+    }
+    else{
+        stopRecording();
+    }
+    clicks++
+});

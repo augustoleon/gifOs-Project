@@ -851,6 +851,7 @@ section.permisos div.permisos-container .cancelstart .cancel {
   height: 36px;
   border: 1px solid #110038;
   margin-top: 24px;
+  cursor: pointer;
   margin-right: 16px;
   background-color: #fff4fd;
 }
@@ -874,6 +875,7 @@ section.permisos div.permisos-container .cancelstart .start {
   height: 36px;
   border: 1px solid #110038;
   margin-top: 24px;
+  cursor: pointer;
   margin-right: 36px;
   background-color: #f7c9f3;
 }
@@ -964,10 +966,63 @@ section.permisos div.permisos-container .cancelstart .start:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-top: 21px;
+}
+
+.sectionVideo .containerVideobox .capture .seconds {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 124px;
+  height: 36px;
+  background-color: white;
+  border: 1px solid #979797;
+  -webkit-box-shadow: inset -2px -2px #e6e6e6, inset 2px 2px black;
+          box-shadow: inset -2px -2px #e6e6e6, inset 2px 2px black;
+}
+
+.sectionVideo .containerVideobox .capture .seconds p {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 16px;
+  color: #110038;
+}
+
+.sectionVideo .containerVideobox .capture .play {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #110038;
+  background-color: #f7c9f3;
+  -webkit-box-shadow: inset -1px -1px #997d97, inset 1px 1px white;
+          box-shadow: inset -1px -1px #997d97, inset 1px 1px white;
+}
+
+.sectionVideo .containerVideobox .capture .carga {
+  width: 240px;
+  height: 22px;
+  background-color: #b4b4b4;
+  -webkit-box-shadow: inset -2px -2px white, inset 2px 2px black;
+          box-shadow: inset -2px -2px white, inset 2px 2px black;
 }
 
 .sectionVideo .containerVideobox .capture .imgCamera {
@@ -1013,6 +1068,30 @@ section.permisos div.permisos-container .cancelstart .start:hover {
 .sectionVideo .containerVideobox .capture .textCapture p {
   font-family: "Chakra Petch", sans-serif;
   font-size: 16px;
+}
+
+.sectionVideo .containerVideobox .capture .upload {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 144px;
+  height: 36px;
+  border: 1px solid #110038;
+  background-color: #f7c9f3;
+  -webkit-box-shadow: inset -1px -1px #997d97, inset 1px 1px white;
+          box-shadow: inset -1px -1px #997d97, inset 1px 1px white;
+}
+
+.sectionVideo .containerVideobox .capture .upload p {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 16px;
+  color: #110038;
 }
 
 .sectionVideo .containerVideobox .capture .imgCamera:hover {
