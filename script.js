@@ -357,7 +357,9 @@ arrow.addEventListener('click', ()=> {
 
     // Camara encendida
 
-    cameraOff()
+    cameraOff();
+    stopRecording();
+    stopTime();
 })
 
 
@@ -391,7 +393,7 @@ function cameraOn(){
 //////////// Apagar la camara ////////////////7
 function cameraOff(){
     
-    sectionVideo.style.display = 'none';
+    // sectionVideo.style.display = 'none';
     
     let tracks = video.srcObject.getTracks();
     
@@ -400,16 +402,6 @@ function cameraOff(){
     video.srcObject = null;
 }
 
-permisos.style.display ='flex';
-document.querySelector('.trend').style.display = 'none';
-document.querySelector('.sugerencias').style.display = 'none';
-document.querySelector('.search').style.display = 'none';
-document.querySelector('.buttons').style.display = 'none';
-
-document.querySelector('.permisos').style.display = 'none';
-
-/////// MIENTRAS ARREGLO EL SECTION VIDEO Y LOS BOTONES ////////////////
-sectionVideo.style.display = 'block'
 
 
 ////////////// Creamos el Recorder //////////////////
@@ -455,16 +447,41 @@ async function startRecording(){
     capturar.style.fontFamily ='ChakraPetch-Regular';
 
     let img = document.querySelector('.imgCamera');
+    img.style.marginLeft = '445px';
     let iconCamera = document.getElementById('iconCamera');
     img.style.backgroundColor = 'rgba(255,97,97,1)';
 
     iconCamera.setAttribute('src', './assets/recording.svg');
+
+    buttonsVideo.seconds.style.display = 'flex'
+
 
     // capturar.styles.boxShadow = 'inset -1px -1px rgba(153,58,58,1), inset 1px 1px rgba(255,255,255,1)';
     // img.styles.boxShadow = 'inset -1px -1px rgba(153,58,58,1), inset 1px 1px rgba(255,255,255,1)'; 
 
 
 }
+
+let buttonsVideo = {
+    container: document.querySelector('.capture'),
+    seconds: document.querySelector('.seconds'),
+    play: document.querySelector('.play'),
+    carga: document.querySelector('.carga'),
+    upload: document.querySelector('.upload')
+
+    
+
+}
+
+function ocultarBotones(){
+    buttonsVideo.seconds.style.display = 'none';
+    buttonsVideo.play.style.display = 'none';
+    buttonsVideo.carga.style.display = 'none';
+    buttonsVideo.upload.style.display = 'none';
+
+}
+
+ocultarBotones();
 
 async function stopRecording(){
     
@@ -478,9 +495,13 @@ async function stopRecording(){
     blobVideo = await recorderVideo.getBlob();
     // invokeSaveAsDialog(blob);
 
+    /////// estilo de botones /////////////
+    
+
     console.log('stoped');
     // console.log(blob);
 
+    
 }
 
 
@@ -491,9 +512,83 @@ capturar.addEventListener('click', () => {
 
     if(clicks % 2 == 0){
         startRecording();
+        cameraOnButtons();
+        count();
     }
     else{
         stopRecording();
+        repetirCarga();
+        stopTime();
+        buttonsVideo.play.style.display = 'flex';
+        buttonsVideo.carga.style.display = 'flex';
+        buttonsVideo.upload.style.display = 'flex';
     }
     clicks++
 });
+
+function cameraOnButtons(){
+    buttonsVideo.seconds.style.display = 'flex';
+    buttonsVideo.play.style.display = 'none';
+    buttonsVideo.carga.style.display = 'none';
+    buttonsVideo.upload.style.display = 'none';
+    
+
+}
+
+let timer = null;
+
+const count = () => {
+    let time = buttonsVideo.seconds;
+    let secondsTime = 0;
+    let minutes = 0;
+
+    timer = setInterval(() => {
+        // t = getTime();
+        
+        secondsTime++
+        if(secondsTime == 59){
+            secondsTime = 0;
+            minutes++;
+            // minutes.innerText = minutes; 
+        }     
+        time.innerHTML = `00:00:${('0'+ minutes).slice(-2)}:${('0' + secondsTime).slice(-2)}`;
+        
+    }, 1000);
+    
+    return timer;
+    
+}
+
+const stopTime = () =>{
+    clearInterval(timer)
+}
+
+
+function repetirCarga(){
+    capturar.style.backgroundColor = 'rgba(255,244,253,1)';
+    capturar.style.color = 'rgba(17,0,56,1)';
+    capturar.innerText = 'Repetir Captura';
+    capturar.style.margin = '0px 10px 0px 0px';
+    capturar.style.border = '1px solid black'
+    
+    let img = document.querySelector('.imgCamera'); 
+    img.style.display = 'none';
+    
+    buttonsVideo.container.style.justifyContent = 'space-between';
+    buttonsVideo.seconds.style.marginLeft = '10px';
+
+}
+
+
+
+
+// permisos.style.display ='flex';
+// document.querySelector('.trend').style.display = 'none';
+// document.querySelector('.sugerencias').style.display = 'none';
+// document.querySelector('.search').style.display = 'none';
+// document.querySelector('.buttons').style.display = 'none';
+
+// document.querySelector('.permisos').style.display = 'none';
+
+// /////MIENTRAS ARREGLO EL SECTION VIDEO Y LOS BOTONES ////////////////
+// sectionVideo.style.display = 'flex'

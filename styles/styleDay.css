@@ -966,16 +966,28 @@ section.permisos div.permisos-container .cancelstart .start:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   margin-top: 21px;
 }
 
-.sectionVideo .containerVideobox .capture .seconds {
+.sectionVideo .containerVideobox .capture .buttonsLeft {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 60px;
+}
+
+.sectionVideo .containerVideobox .capture .buttonsLeft .seconds {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -991,15 +1003,12 @@ section.permisos div.permisos-container .cancelstart .start:hover {
   border: 1px solid #979797;
   -webkit-box-shadow: inset -2px -2px #e6e6e6, inset 2px 2px black;
           box-shadow: inset -2px -2px #e6e6e6, inset 2px 2px black;
-}
-
-.sectionVideo .containerVideobox .capture .seconds p {
   font-family: "Chakra Petch", sans-serif;
   font-size: 16px;
   color: #110038;
 }
 
-.sectionVideo .containerVideobox .capture .play {
+.sectionVideo .containerVideobox .capture .buttonsLeft .play {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1013,11 +1022,12 @@ section.permisos div.permisos-container .cancelstart .start:hover {
   height: 20px;
   border: 1px solid #110038;
   background-color: #f7c9f3;
+  margin: 0px 4px 0px 24px;
   -webkit-box-shadow: inset -1px -1px #997d97, inset 1px 1px white;
           box-shadow: inset -1px -1px #997d97, inset 1px 1px white;
 }
 
-.sectionVideo .containerVideobox .capture .carga {
+.sectionVideo .containerVideobox .capture .buttonsLeft .carga {
   width: 240px;
   height: 22px;
   background-color: #b4b4b4;
@@ -1025,7 +1035,18 @@ section.permisos div.permisos-container .cancelstart .start:hover {
           box-shadow: inset -2px -2px white, inset 2px 2px black;
 }
 
-.sectionVideo .containerVideobox .capture .imgCamera {
+.sectionVideo .containerVideobox .capture .buttonsRight {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-right: 6px;
+}
+
+.sectionVideo .containerVideobox .capture .buttonsRight .imgCamera {
+  margin-left: 580px;
   width: 36px;
   height: 36px;
   border: 1px solid #110038;
@@ -1044,11 +1065,10 @@ section.permisos div.permisos-container .cancelstart .start:hover {
   cursor: pointer;
 }
 
-.sectionVideo .containerVideobox .capture .textCapture {
+.sectionVideo .containerVideobox .capture .buttonsRight .textCapture {
   width: 144px;
   height: 36px;
   border: 1px solid #110038;
-  margin-right: 16px;
   background-color: #f7c9f3;
   -webkit-box-shadow: inset -1px -1px #997d97, inset 1px 1px white;
           box-shadow: inset -1px -1px #997d97, inset 1px 1px white;
@@ -1063,14 +1083,16 @@ section.permisos div.permisos-container .cancelstart .start:hover {
       -ms-flex-align: center;
           align-items: center;
   cursor: pointer;
-}
-
-.sectionVideo .containerVideobox .capture .textCapture p {
   font-family: "Chakra Petch", sans-serif;
   font-size: 16px;
 }
 
-.sectionVideo .containerVideobox .capture .upload {
+.sectionVideo .containerVideobox .capture .buttonsRight .textCapture p {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 16px;
+}
+
+.sectionVideo .containerVideobox .capture .buttonsRight .upload {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1086,9 +1108,10 @@ section.permisos div.permisos-container .cancelstart .start:hover {
   background-color: #f7c9f3;
   -webkit-box-shadow: inset -1px -1px #997d97, inset 1px 1px white;
           box-shadow: inset -1px -1px #997d97, inset 1px 1px white;
+  margin-left: 14px;
 }
 
-.sectionVideo .containerVideobox .capture .upload p {
+.sectionVideo .containerVideobox .capture .buttonsRight .upload p {
   font-family: "Chakra Petch", sans-serif;
   font-size: 16px;
   color: #110038;
