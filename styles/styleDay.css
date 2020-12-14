@@ -954,12 +954,17 @@ section.permisos div.permisos-container .cancelstart .start:hover {
           box-shadow: inset -2px -2px #e6e6e6, inset 2px 2px black;
 }
 
-.sectionVideo .containerVideobox .containerVideo .video {
+.sectionVideo .containerVideobox .containerVideo .video,
+.sectionVideo .containerVideobox .containerVideo .video2 {
   height: 428px;
   width: 826px;
   margin: 2px 0px 0px 2px;
   -o-object-fit: inherit;
      object-fit: inherit;
+}
+
+.sectionVideo .containerVideobox .containerVideo .video2 {
+  display: none;
 }
 
 .sectionVideo .containerVideobox .capture {
@@ -1090,6 +1095,28 @@ section.permisos div.permisos-container .cancelstart .start:hover {
 .sectionVideo .containerVideobox .capture .buttonsRight .textCapture p {
   font-family: "Chakra Petch", sans-serif;
   font-size: 16px;
+}
+
+.sectionVideo .containerVideobox .capture .buttonsRight .repetir {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  width: 144px;
+  height: 36px;
+  font-size: 16px;
+  font-family: "Chakra Petch", sans-serif;
+  color: #110038;
+  background-color: #fff4fd;
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px #997d97, inset 1px 1px white;
+          box-shadow: inset -1px -1px #997d97, inset 1px 1px white;
 }
 
 .sectionVideo .containerVideobox .capture .buttonsRight .upload {

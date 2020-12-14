@@ -355,8 +355,15 @@ arrow.addEventListener('click', ()=> {
     // PERMISOS
     document.querySelector('.permisos').style.display = 'none';
 
-    // Camara encendida
+    // CONTAINER VIDEO
+    sectionVideo.style.display = 'none';
 
+    // Camara encendida
+    
+    let video2 = document.getElementById('video2');
+    video2.srcObject = null;
+    video.srcObject = null;
+    
     cameraOff();
     stopRecording();
     stopTime();
@@ -410,10 +417,13 @@ let recorder = null;
 let recorderVideo = null;
 let blob = null;
 let blobVideo = null;
+let video2 = null;
+
 
 async function startRecording(){
     
     let stream = await navigator.mediaDevices.getUserMedia({video: true, audio: false});
+
     recorder = new RecordRTCPromisesHandler(stream, {
         type: 'gif',
         frameRate: 1,
@@ -467,6 +477,7 @@ let buttonsVideo = {
     seconds: document.querySelector('.seconds'),
     play: document.querySelector('.play'),
     carga: document.querySelector('.carga'),
+    repetir: document.querySelector('.repetir'),
     upload: document.querySelector('.upload')
 
     
@@ -478,6 +489,7 @@ function ocultarBotones(){
     buttonsVideo.play.style.display = 'none';
     buttonsVideo.carga.style.display = 'none';
     buttonsVideo.upload.style.display = 'none';
+    buttonsVideo.repetir.style.display = 'none'
 
 }
 
@@ -495,8 +507,19 @@ async function stopRecording(){
     blobVideo = await recorderVideo.getBlob();
     // invokeSaveAsDialog(blob);
 
+    //// Transforma el video guardado en una URL /////
+    let videoUpload = await URL.createObjectURL(blobVideo);
+    video2 = document.getElementById('video2');
+    video.style.display ='none';
+    video2.style.display = 'flex';
+    console.log(videoUpload);
+    video2.src = videoUpload;
+    video2.play();
+
     /////// estilo de botones /////////////
     
+    //////////////////////////////
+    formData();
 
     console.log('stoped');
     // console.log(blob);
@@ -514,16 +537,18 @@ capturar.addEventListener('click', () => {
         startRecording();
         cameraOnButtons();
         count();
+        clicks++;
+        
     }
     else{
         stopRecording();
-        repetirCarga();
         stopTime();
+        repetirCarga();
         buttonsVideo.play.style.display = 'flex';
         buttonsVideo.carga.style.display = 'flex';
         buttonsVideo.upload.style.display = 'flex';
+        
     }
-    clicks++
 });
 
 function cameraOnButtons(){
@@ -565,19 +590,73 @@ const stopTime = () =>{
 
 
 function repetirCarga(){
-    capturar.style.backgroundColor = 'rgba(255,244,253,1)';
-    capturar.style.color = 'rgba(17,0,56,1)';
-    capturar.innerText = 'Repetir Captura';
-    capturar.style.margin = '0px 10px 0px 0px';
-    capturar.style.border = '1px solid black'
+    capturar.style.display = 'none';
+
+    buttonsVideo.repetir.style.display = 'flex';
+    
     
     let img = document.querySelector('.imgCamera'); 
     img.style.display = 'none';
     
     buttonsVideo.container.style.justifyContent = 'space-between';
     buttonsVideo.seconds.style.marginLeft = '10px';
-
+    
 }
+
+buttonsVideo.repetir.addEventListener('click', () => {
+        
+    startRecording();
+    cameraOnButtons();
+    count();
+    capturar.style.display = 'flex';
+    
+    buttonsVideo.repetir.style.display = 'none';
+    let img = document.querySelector('.imgCamera');
+    img.style.display = 'flex';
+    
+    video.style.display = 'flex';
+    video2.style.display = 'none';
+    // clicks = 1;
+})
+
+let form = null; 
+
+const formData = ()=> {
+    form = new FormData();
+    form.append('file', blob, 'myGif.gif');
+    form.append('file', blobVideo, 'myGif.gif');
+    // blob = null;
+    // blobVideo = null;
+    /////  Confirmamos que nuestra FormData se está creando de manera correcta //////
+    console.log(form.get('file'));
+
+    return form;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+buttonsVideo.play.addEventListener('click',() =>{
+    blobbb = new Blob();
+    const stream = blobbb.stream();
+    return stream;
+} );
+
+const barraPlay = ()=> {
+    let carga = document.querySelector('.carga');
+    let barra = document.querySelector('.cargando');
+
+    barra.style.width = '12px';
+    barra.style.height = '18px';
+    barra.style.backgroundColor ='rgba(153,153,153,1)';
+    barra.style.border = '1px solid rgba(180,180,180,1)';
+    for(barras of barra){
+
+    }
+    
+}
+
+
+
 
 
 
