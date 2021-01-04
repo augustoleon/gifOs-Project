@@ -94,9 +94,18 @@
                     margin: 0px 4px 0px 24px;
     
                     box-shadow: $buttonshadow;
+                    /////////////////////////////////////////////// de aqui
+                    cursor: pointer;
     
                 }
-    
+
+                .play:hover {
+                    outline: $borderhover;
+                    background-color: $buttonbghover;
+                    outline-offset: -4px;
+
+                }
+                    //////////////////////////////////////////////////// hasta aquí
                 .carga{
                     width: 240px;
                     height: 22px;
@@ -168,6 +177,14 @@
                     border: 1px solid $buttoncolor;
                     box-shadow: $buttonshadow;
                 }
+                ///////////////////////////////////////// de aquí
+
+                .repetir:hover {
+                    outline: $borderhover;
+                    background-color: rgba(240,229,238,1);
+                    outline-offset: -4px;
+                }
+                /////////////////////////////////////////// hasta aquí
 
                 .upload{
                     display: flex;
@@ -180,6 +197,8 @@
                     background-color: $buttonbg;
                     box-shadow: $buttonshadow;
                     margin-left: 14px;
+                    //////////////////////
+                    cursor: pointer;
     
                     p{
                         font-family: $fontregular;
@@ -189,6 +208,13 @@
     
     
                 }
+                //////////////////////////////////////// here
+                .upload:hover {
+                    outline: $borderhover;
+                    background-color: $buttonbghover;
+                    outline-offset: -4px;
+                }
+                ///////////////////////////////////////// to here
             }
 
 

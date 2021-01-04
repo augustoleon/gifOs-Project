@@ -398,6 +398,7 @@ function cameraOn(){
     }).catch(console.error)
 }
 //////////// Apagar la camara ////////////////7
+
 function cameraOff(){
     
     // sectionVideo.style.display = 'none';
@@ -418,6 +419,7 @@ let recorderVideo = null;
 let blob = null;
 let blobVideo = null;
 let video2 = null;
+let videoUpload = null;
 
 
 async function startRecording(){
@@ -478,9 +480,7 @@ let buttonsVideo = {
     play: document.querySelector('.play'),
     carga: document.querySelector('.carga'),
     repetir: document.querySelector('.repetir'),
-    upload: document.querySelector('.upload')
-
-    
+    upload: document.querySelector('.upload')    
 
 }
 
@@ -495,31 +495,54 @@ function ocultarBotones(){
 
 ocultarBotones();
 
+// let form = null; 
+let formToSend = null;
+
+const formData = ()=> {
+    let form = new FormData();
+    form.append('file', blob, 'myGif.gif');
+    // form.append('file', blobVideo, 'myGif.gif');
+
+    // blob = null;
+    // blobVideo = null;
+    /////  Confirmamos que nuestra FormData se está creando de manera correcta //////
+    // console.log(form.get('file'));
+    return form;
+}
+
 async function stopRecording(){
     
     const sleep = m => new Promise(r => setTimeout(r, m));
-    await sleep(3000);
+    await sleep(1000);
 
     await recorder.stopRecording();
     await recorderVideo.stopRecording();
 
     blob = await recorder.getBlob();
     blobVideo = await recorderVideo.getBlob();
+    // enviarGif(apiKey, blobVideo);
     // invokeSaveAsDialog(blob);
 
     //// Transforma el video guardado en una URL /////
-    let videoUpload = await URL.createObjectURL(blobVideo);
+    videoUpload = await URL.createObjectURL(blobVideo);
     video2 = document.getElementById('video2');
     video.style.display ='none';
     video2.style.display = 'flex';
-    console.log(videoUpload);
+    console.log('VIDEOUPLOAD: ',videoUpload);
     video2.src = videoUpload;
     video2.play();
+
+    recorder.reset();
+    recorder.destroy();
+
+    recorderVideo.reset();
+    recorderVideo.destroy();
 
     /////// estilo de botones /////////////
     
     //////////////////////////////
-    formData();
+    formToSend = formData(blob);
+    // console.log("formToSend", formToSend)
 
     console.log('stoped');
     // console.log(blob);
@@ -619,26 +642,70 @@ buttonsVideo.repetir.addEventListener('click', () => {
     // clicks = 1;
 })
 
-let form = null; 
 
-const formData = ()=> {
-    form = new FormData();
-    form.append('file', blob, 'myGif.gif');
-    form.append('file', blobVideo, 'myGif.gif');
-    // blob = null;
-    // blobVideo = null;
-    /////  Confirmamos que nuestra FormData se está creando de manera correcta //////
-    console.log(form.get('file'));
 
-    return form;
+
+const local_Storage = () => {
+    const newId = localStorage.length;
+    let setLocal = localStorage.setItem(`My-gifos-${newId}`, JSON.stringify(video2.src));
+    // enviarGif(apiKey, video2.src);
+    console.log('Desde el LOCALSTORAGE',video2.src)
 }
+
+const getLocal = ()=> {
+    let videoGif = JSON.parse(localStorage.getItem(""));
+    console.log(videoGif);
+
+}
+getLocal();
+
+///////////////////////////////////////////////////////////////////
+const enviarGif = async (key, file) => {
+    const url = `https://upload.giphy.com/v1/gifs${key}`;
+    console.log('FILE',file);
+    const header = new Headers();
+    // header.append('Access-Control-Allow-Headers', '*');
+    
+    const body = {
+        method: 'POST',
+        body: file,
+        // mode: 'cors',
+        // api_key: key,
+        headers: header,
+        // regula de donde estoy mandando información, control de acceso http 
+        cors: "cors"
+    }
+    try {
+        console.log('Estoy enviando el GIF');
+        const res = await fetch(url, body);
+        console.log(res);
+        // const data = data.json();
+        // console.log(data)
+    } catch (error) {
+        await console.error(error);
+        
+    }
+}
+
+buttonsVideo.upload.addEventListener('click', ()=>{
+    try {
+        enviarGif(apiKey, formToSend);
+        
+    } catch (error) {
+        console.log(error)
+    }
+    
+
+} );
+
+
+
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 buttonsVideo.play.addEventListener('click',() =>{
-    blobbb = new Blob();
-    const stream = blobbb.stream();
-    return stream;
+    video2.play();
 } );
 
 const barraPlay = ()=> {
@@ -661,6 +728,7 @@ const barraPlay = ()=> {
 
 
 
+
 // permisos.style.display ='flex';
 // document.querySelector('.trend').style.display = 'none';
 // document.querySelector('.sugerencias').style.display = 'none';
@@ -671,3 +739,6 @@ const barraPlay = ()=> {
 
 // /////MIENTRAS ARREGLO EL SECTION VIDEO Y LOS BOTONES ////////////////
 // sectionVideo.style.display = 'flex'
+
+
+

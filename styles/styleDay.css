@@ -1030,6 +1030,13 @@ section.permisos div.permisos-container .cancelstart .start:hover {
   margin: 0px 4px 0px 24px;
   -webkit-box-shadow: inset -1px -1px #997d97, inset 1px 1px white;
           box-shadow: inset -1px -1px #997d97, inset 1px 1px white;
+  cursor: pointer;
+}
+
+.sectionVideo .containerVideobox .capture .buttonsLeft .play:hover {
+  outline: 1px dotted #110038;
+  background-color: #e6bbe2;
+  outline-offset: -4px;
 }
 
 .sectionVideo .containerVideobox .capture .buttonsLeft .carga {
@@ -1119,6 +1126,12 @@ section.permisos div.permisos-container .cancelstart .start:hover {
           box-shadow: inset -1px -1px #997d97, inset 1px 1px white;
 }
 
+.sectionVideo .containerVideobox .capture .buttonsRight .repetir:hover {
+  outline: 1px dotted #110038;
+  background-color: #f0e5ee;
+  outline-offset: -4px;
+}
+
 .sectionVideo .containerVideobox .capture .buttonsRight .upload {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1136,12 +1149,19 @@ section.permisos div.permisos-container .cancelstart .start:hover {
   -webkit-box-shadow: inset -1px -1px #997d97, inset 1px 1px white;
           box-shadow: inset -1px -1px #997d97, inset 1px 1px white;
   margin-left: 14px;
+  cursor: pointer;
 }
 
 .sectionVideo .containerVideobox .capture .buttonsRight .upload p {
   font-family: "Chakra Petch", sans-serif;
   font-size: 16px;
   color: #110038;
+}
+
+.sectionVideo .containerVideobox .capture .buttonsRight .upload:hover {
+  outline: 1px dotted #110038;
+  background-color: #e6bbe2;
+  outline-offset: -4px;
 }
 
 .sectionVideo .containerVideobox .capture .imgCamera:hover {
