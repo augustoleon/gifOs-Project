@@ -498,9 +498,13 @@ ocultarBotones();
 // let form = null; 
 let formToSend = null;
 
-const formData = ()=> {
+const formData = (prueba)=> {
     let form = new FormData();
-    form.append('file', blob, 'myGif.gif');
+    // form.append('file', prueba, 'myGif.gif');
+    form.append('file', prueba);
+
+    form.append('api_key', 'gEmKkzAqvny1uF7Kng6ePeab0sPCfD2G');
+
     // form.append('file', blobVideo, 'myGif.gif');
 
     // blob = null;
@@ -660,25 +664,36 @@ const getLocal = ()=> {
 getLocal();
 
 ///////////////////////////////////////////////////////////////////
-const enviarGif = async (key, file) => {
-    const url = `https://upload.giphy.com/v1/gifs${key}`;
+const enviarGif = async (key = null, file) => {
+    // const url = `https://upload.giphy.com/v1/gifs${key}`;
+    const url = `https://upload.giphy.com/v1/gifs`;
+
+    for (var key of file.keys()) {
+        console.log('keys',key);
+    }
+    for (var value of file.values()) {
+        console.log('values', value);
+    }
+
     console.log('FILE',file);
     const header = new Headers();
     // header.append('Access-Control-Allow-Headers', '*');
     
-    const body = {
+    const options = {
         method: 'POST',
         body: file,
         // mode: 'cors',
         // api_key: key,
-        headers: header,
+        // headers: header,
         // regula de donde estoy mandando información, control de acceso http 
-        cors: "cors"
+        // cors: "cors"
     }
     try {
         console.log('Estoy enviando el GIF');
-        const res = await fetch(url, body);
+        const res = await fetch(url, options);
         console.log(res);
+        const data = await res.json();
+        console.log(data);
         // const data = data.json();
         // console.log(data)
     } catch (error) {
@@ -689,6 +704,7 @@ const enviarGif = async (key, file) => {
 
 buttonsVideo.upload.addEventListener('click', ()=>{
     try {
+        console.log('Variable que le paso a enviarGif', formToSend);
         enviarGif(apiKey, formToSend);
         
     } catch (error) {
@@ -739,6 +755,25 @@ const barraPlay = ()=> {
 
 // /////MIENTRAS ARREGLO EL SECTION VIDEO Y LOS BOTONES ////////////////
 // sectionVideo.style.display = 'flex'
+
+
+
+
+/*
+const getGifById = async (gifId='id_1,id_2,id_3') => {
+    try {
+        const res = await fetch(`${urlBase}${apiKey}&ids=${gifId}`)
+        const data = await res.json();
+        data.data.map(image => document.getElementById('HTMLElement').src = image.downsized_large.url)
+        // Data va a tener un array de gif 
+        data: [
+            {
+                image: {
+                    downsized_large: {
+                        url: 'alog'
+                    }
+                }
+*/
 
 
 
