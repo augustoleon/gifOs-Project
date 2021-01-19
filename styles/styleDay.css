@@ -955,7 +955,8 @@ section.permisos div.permisos-container .cancelstart .start:hover {
 }
 
 .sectionVideo .containerVideobox .containerVideo .video,
-.sectionVideo .containerVideobox .containerVideo .video2 {
+.sectionVideo .containerVideobox .containerVideo .video2,
+.sectionVideo .containerVideobox .containerVideo .uploading {
   height: 428px;
   width: 826px;
   margin: 2px 0px 0px 2px;
@@ -965,6 +966,91 @@ section.permisos div.permisos-container .cancelstart .start:hover {
 
 .sectionVideo .containerVideobox .containerVideo .video2 {
   display: none;
+}
+
+.sectionVideo .containerVideobox .containerVideo .uploading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.sectionVideo .containerVideobox .containerVideo .uploading img {
+  margin-bottom: 8px;
+}
+
+.sectionVideo .containerVideobox .containerVideo .uploading .weareup {
+  margin-bottom: 40px;
+  font-family: "Chakra Petch", sans-serif;
+  color: #110038;
+  font-size: 16px;
+}
+
+.sectionVideo .containerVideobox .containerVideo .uploading .carga2 {
+  width: 324px;
+  height: 22px;
+  background-color: #b4b4b4;
+  -webkit-box-shadow: inset -2px -2px white, inset 2px 2px black;
+          box-shadow: inset -2px -2px white, inset 2px 2px black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.sectionVideo .containerVideobox .containerVideo .uploading .carga2 .barra2 {
+  width: 60%;
+  height: 20px;
+  background-color: pink;
+}
+
+.sectionVideo .containerVideobox .containerVideo .uploading .carga2 .timeSquare.loadSquare {
+  background-color: #f7c9f3;
+}
+
+.sectionVideo .containerVideobox .containerVideo .uploading .carga2 .timeSquare {
+  display: block;
+  width: 15px;
+  height: 20px;
+  background-color: #999999;
+  margin: 2px;
+}
+
+@-webkit-keyframes barra-2 {
+  0% {
+    width: 0;
+  }
+}
+
+@keyframes barra-2 {
+  0% {
+    width: 0;
+  }
+}
+
+.sectionVideo .containerVideobox .containerVideo .uploading .timeyears {
+  margin-top: 10px;
+  color: rgba(17, 0, 56, 0.64);
+  font-size: 12px;
+  font-family: "Chakra Petch", sans-serif;
+}
+
+.sectionVideo .containerVideobox .containerVideo .uploading .timeyears span {
+  text-decoration: line-through;
 }
 
 .sectionVideo .containerVideobox .capture {
@@ -1045,6 +1131,27 @@ section.permisos div.permisos-container .cancelstart .start:hover {
   background-color: #b4b4b4;
   -webkit-box-shadow: inset -2px -2px white, inset 2px 2px black;
           box-shadow: inset -2px -2px white, inset 2px 2px black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.sectionVideo .containerVideobox .capture .buttonsLeft .carga .cargando.loadSquare {
+  background-color: #f7c9f3;
+}
+
+.sectionVideo .containerVideobox .capture .buttonsLeft .carga .cargando {
+  display: block;
+  width: 11px;
+  height: 20px;
+  background-color: #999999;
+  margin: 2px;
 }
 
 .sectionVideo .containerVideobox .capture .buttonsRight {

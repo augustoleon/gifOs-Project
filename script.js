@@ -382,8 +382,8 @@ comenzar.addEventListener('click', cameraOn)
 
 function cameraOn(){
     sectionVideo.style.display = 'flex';
-    permisos.style.display = 'none'
-    
+    permisos.style.display = 'none';
+
     navigator.mediaDevices.getUserMedia({
         audio: false,
         video: {    
@@ -656,6 +656,8 @@ const local_Storage = () => {
     console.log('Desde el LOCALSTORAGE',video2.src)
 }
 
+
+
 const getLocal = ()=> {
     let videoGif = JSON.parse(localStorage.getItem(""));
     console.log(videoGif);
@@ -665,7 +667,6 @@ getLocal();
 
 ///////////////////////////////////////////////////////////////////
 const enviarGif = async (key = null, file) => {
-    // const url = `https://upload.giphy.com/v1/gifs${key}`;
     const url = `https://upload.giphy.com/v1/gifs`;
 
     for (var key of file.keys()) {
@@ -677,12 +678,10 @@ const enviarGif = async (key = null, file) => {
 
     console.log('FILE',file);
     const header = new Headers();
-    // header.append('Access-Control-Allow-Headers', '*');
     
     const options = {
         method: 'POST',
         body: file,
-        // mode: 'cors',
         // api_key: key,
         // headers: header,
         // regula de donde estoy mandando información, control de acceso http 
@@ -694,7 +693,12 @@ const enviarGif = async (key = null, file) => {
         console.log(res);
         const data = await res.json();
         console.log(data);
-        // const data = data.json();
+        const newId = localStorage.length;
+        if(data.meta.status == 200){
+            let setLocal = localStorage.setItem(`My-gifos-${newId}`, data.data.id);
+            cargarBarra(14,16,'timeSquare');
+        }
+            // const data = data.json();
         // console.log(data)
     } catch (error) {
         await console.error(error);
@@ -706,6 +710,10 @@ buttonsVideo.upload.addEventListener('click', ()=>{
     try {
         console.log('Variable que le paso a enviarGif', formToSend);
         enviarGif(apiKey, formToSend);
+        document.querySelector('.uploading').style.display = 'flex';
+        document.querySelector('.video').style.display = 'none';
+        document.querySelector('.video2').style.display = 'none';
+        cargarBarra(0,14, 'timeSquare');
         
     } catch (error) {
         console.log(error)
@@ -722,6 +730,12 @@ buttonsVideo.upload.addEventListener('click', ()=>{
 
 buttonsVideo.play.addEventListener('click',() =>{
     video2.play();
+    cargarBarra(0,15, 'cargando');
+    let carga = document.querySelectorAll('.cargando');
+    for(let i = 0; i < 16; i++){
+        carga[i].classList.remove('loadSquare');
+    }
+    
 } );
 
 const barraPlay = ()=> {
@@ -739,9 +753,68 @@ const barraPlay = ()=> {
 }
 
 
+function getIdsLocal(){
 
+    let string = '';
 
+    for(let i = 0; i < localStorage.length; i++){
+        let id = localStorage.getItem(`My-gifos-${i}`);
+        string = string + id + ',';
 
+        console.log('STRING', string)
+
+    }
+    return string;
+}
+getIdsLocal();
+
+async function misGuifos(){
+
+    let grid = document.getElementById('gridGuifos');
+
+    const url = 'https://api.giphy.com/v1/gifs';
+    let ids = getIdsLocal();
+
+    let url2 = `${url}${apiKey}&ids=${ids}`;
+    console.log(url2);
+    let data = await fetch(`${url}${apiKey}&ids=${ids}`);
+    let guifos = await data.json();
+    console.log('GUIFOS', guifos);
+
+    getGifs(guifos, grid);
+
+}
+//misGuifos();
+
+// TO DO
+// document.querySelector('video').style.display = 'none';
+// document.querySelector('video2').style.display = 'none';
+
+function cargarBarra(init, final, container) {
+    let timeSquare = document.querySelectorAll('.' + container);
+    let i = init;
+
+    setInterval(() => {
+        if(i <= final){
+            timeSquare[i].classList.add('loadSquare');
+            i++;
+            console.log(i);
+            if( i >= 17){
+                setTimeout(() => {
+                    document.querySelector('.uploading').style.display = 'none'
+
+                    // TO DO 
+                    document.querySelector('.video2').style.display = 'flex';
+                    
+                }, 1000);
+            }
+
+        }
+    }, 500);
+
+}
+
+document.querySelector('.uploading').style.display = 'none';
 
 
 
@@ -755,25 +828,4 @@ const barraPlay = ()=> {
 
 // /////MIENTRAS ARREGLO EL SECTION VIDEO Y LOS BOTONES ////////////////
 // sectionVideo.style.display = 'flex'
-
-
-
-
-/*
-const getGifById = async (gifId='id_1,id_2,id_3') => {
-    try {
-        const res = await fetch(`${urlBase}${apiKey}&ids=${gifId}`)
-        const data = await res.json();
-        data.data.map(image => document.getElementById('HTMLElement').src = image.downsized_large.url)
-        // Data va a tener un array de gif 
-        data: [
-            {
-                image: {
-                    downsized_large: {
-                        url: 'alog'
-                    }
-                }
-*/
-
-
 

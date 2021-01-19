@@ -42,7 +42,8 @@
             box-shadow: inset -2px -2px rgba(230,230,230,1), inset 2px 2px rgba(0,0,0,1);
 
             .video,
-            .video2{
+            .video2,
+            .uploading{
                 height: 428px;
                 width: 826px;
                 margin: 2px 0px 0px 2px;
@@ -51,6 +52,71 @@
             
             .video2 {
                 display: none;
+            }
+
+            .uploading {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
+                img{
+                    margin-bottom: 8px;
+                }
+                
+                .weareup {
+                    margin-bottom: 40px;
+                    font-family: $fontregular;
+                    color: $buttoncolor;
+                    font-size: $sizebutton;
+                }
+
+                .carga2{
+                    width: 324px;
+                    height: 22px;
+                    background-color: rgba(180,180,180,1);
+                    box-shadow: inset -2px -2px  white, inset 2px 2px rgba(0,0,0,1);
+                    
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex-direction: column;
+                    .barra2{
+                        
+                        width: 60%;
+                        height: 20px;
+                        background-color: pink;
+                    }
+
+                    .timeSquare.loadSquare{
+                        background-color: rgba(247,201,243,1);
+
+                    }
+                    .timeSquare {
+                        // animation: barra-2 3s;
+                        display: block;
+                        width: 15px;
+                        height: 20px;
+                        background-color: #999999;
+                        margin: 2px;
+                    }
+                }
+
+                @keyframes barra-2 {
+                    0% {
+                        width: 0;
+                    }
+                }
+
+                .timeyears {
+                    margin-top: 10px;
+                    color: rgba(17,0,56,0.64);
+                    font-size: $sizehead;
+                    font-family: $fontregular;
+
+                    span{
+                        text-decoration: line-through;
+                    }
+                }
             }
 
         }
@@ -111,6 +177,23 @@
                     height: 22px;
                     background-color: rgba(180,180,180,1);
                     box-shadow: inset -2px -2px  white, inset 2px 2px rgba(0,0,0,1);
+
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex-direction: column;
+
+                    .cargando.loadSquare{
+                        background-color: rgba(247,201,243,1);
+
+                    }
+
+                    .cargando {
+                        display: block;
+                        width: 11px;
+                        height: 20px;
+                        background-color: #999999;
+                        margin: 2px;
+                    }
     
                 }
             }
