@@ -480,7 +480,8 @@ let buttonsVideo = {
     play: document.querySelector('.play'),
     carga: document.querySelector('.carga'),
     repetir: document.querySelector('.repetir'),
-    upload: document.querySelector('.upload')    
+    upload: document.querySelector('.upload'),
+    cancel: document.querySelector('.cancelUpload')   
 
 }
 
@@ -666,6 +667,13 @@ const getLocal = ()=> {
 getLocal();
 
 ///////////////////////////////////////////////////////////////////
+
+/// ABORTAR GIF
+const controller = new AbortController();
+const signal = controller.signal;
+
+
+
 const enviarGif = async (key = null, file) => {
     const url = `https://upload.giphy.com/v1/gifs`;
 
@@ -686,10 +694,11 @@ const enviarGif = async (key = null, file) => {
         // headers: header,
         // regula de donde estoy mandando información, control de acceso http 
         // cors: "cors"
+        signal 
     }
     try {
         console.log('Estoy enviando el GIF');
-        const res = await fetch(url, options);
+        const res = await  fetch(url, options);
         console.log(res);
         const data = await res.json();
         console.log(data);
@@ -698,33 +707,63 @@ const enviarGif = async (key = null, file) => {
             let setLocal = localStorage.setItem(`My-gifos-${newId}`, data.data.id);
             cargarBarra(14,16,'timeSquare');
         }
-            // const data = data.json();
-        // console.log(data)
-    } catch (error) {
-        await console.error(error);
+
+    } catch (err) {
+        if (err.name === 'AbortError') {
+            console.log('Fetch was aborted');
+            } else {
+            console.error('Oops!', err);
+        }
         
     }
 }
+/// CERRAMOS ABORTAR GIF
 
 buttonsVideo.upload.addEventListener('click', ()=>{
+
     try {
         console.log('Variable que le paso a enviarGif', formToSend);
         enviarGif(apiKey, formToSend);
+
+        // MOSTRAMOS LA CARGA DEL GIF 
         document.querySelector('.uploading').style.display = 'flex';
+
+        // OCULTAMOS LOS VIDEOS
         document.querySelector('.video').style.display = 'none';
         document.querySelector('.video2').style.display = 'none';
+
+        // OCULTAMOS LOS BOTONES
+        buttonsVideo.repetir.style.display = 'none';
+        buttonsVideo.play.style.display = 'none';
+        buttonsVideo.seconds.style.display = 'none';
+        buttonsVideo.carga.style.display = 'none';
+        buttonsVideo.upload.style.display = 'none';
+
+        
+
+        
+        // cancelar.removeEventListener('')
+        // TO DO
+
+        // MODIFICAMOS EL BOTÓN DE REPETIR, PARA QUE CANCELE LA FUNCIÓN DE ENVIAR EL GIF
+            
+        
+
+        
         cargarBarra(0,14, 'timeSquare');
         
     } catch (error) {
         console.log(error)
     }
     
-
+    
 } );
+console.log('cualquier cosa', buttonsVideo.cancel)
+buttonsVideo.cancel.addEventListener('click', ()=> {
 
-
-
-
+    controller.abort();       
+    console.log('ABORTAR:', controller.abort());
+})
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -736,7 +775,7 @@ buttonsVideo.play.addEventListener('click',() =>{
         carga[i].classList.remove('loadSquare');
     }
     
-} );
+});
 
 const barraPlay = ()=> {
     let carga = document.querySelector('.carga');
@@ -761,7 +800,7 @@ function getIdsLocal(){
         let id = localStorage.getItem(`My-gifos-${i}`);
         string = string + id + ',';
 
-        console.log('STRING', string)
+        // console.log('STRING', string)
 
     }
     return string;
@@ -815,6 +854,7 @@ function cargarBarra(init, final, container) {
 }
 
 document.querySelector('.uploading').style.display = 'none';
+document.querySelector('.guifoSubido').style.display = 'none';
 
 
 

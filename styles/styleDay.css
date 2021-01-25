@@ -1211,7 +1211,8 @@ section.permisos div.permisos-container .cancelstart .start:hover {
   font-size: 16px;
 }
 
-.sectionVideo .containerVideobox .capture .buttonsRight .repetir {
+.sectionVideo .containerVideobox .capture .buttonsRight .repetir,
+.sectionVideo .containerVideobox .capture .buttonsRight .cancelUpload {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1281,6 +1282,124 @@ section.permisos div.permisos-container .cancelstart .start:hover {
   outline: 1px dotted #110038;
   background-color: #e6bbe2;
   outline-offset: -4px;
+}
+
+.guifoSubido {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.guifoSubido .containerSubido {
+  width: 721px;
+  height: 391px;
+  background-color: #e6e6e6;
+  -webkit-box-shadow: inset -2px -2px #b4b4b4, inset 2px 2px white;
+          box-shadow: inset -2px -2px #b4b4b4, inset 2px 2px white;
+}
+
+.guifoSubido .containerSubido .headerSubido {
+  background-image: -webkit-gradient(linear, right top, left top, from(#f7c9f3), to(#4180f6));
+  background-image: linear-gradient(to left, #f7c9f3, #4180f6);
+  -webkit-box-shadow: inset -2px 0px #b4b4b4, inset 2px 0px white;
+          box-shadow: inset -2px 0px #b4b4b4, inset 2px 0px white;
+  height: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.guifoSubido .containerSubido .headerSubido p {
+  margin-left: 6px;
+  color: white;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 14px;
+}
+
+.guifoSubido .containerSubido .headerSubido img {
+  margin-right: 6px;
+}
+
+.guifoSubido .containerSubido .videoButtons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.guifoSubido .containerSubido .videoButtons .preVideo {
+  width: 365px;
+  height: 191px;
+  border: 1px solid #979797;
+  -webkit-box-shadow: inset -2px -2px #e6e6e6, inset 2px 2px black;
+          box-shadow: inset -2px -2px #e6e6e6, inset 2px 2px black;
+  margin: 29px 0px 0px 27px;
+  background-color: white;
+}
+
+.guifoSubido .containerSubido .videoButtons .buttonsSubido {
+  margin-left: 27px;
+}
+
+.guifoSubido .containerSubido .videoButtons .buttonsSubido p {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 16px;
+  margin-top: 49px;
+}
+
+.guifoSubido .containerSubido .videoButtons .buttonsSubido div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 256px;
+  height: 36px;
+  border: 1px solid #110038;
+  margin-top: 24px;
+  cursor: pointer;
+  background-color: #fff4fd;
+  -webkit-box-shadow: inset -1px -1px #997d97, inset 1px 1px white;
+          box-shadow: inset -1px -1px #997d97, inset 1px 1px white;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 16px;
+  color: #110038;
+}
+
+.guifoSubido .containerSubido .buttonsListo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 144px;
+  height: 36px;
+  border: 1px solid #110038;
+  margin-top: 24px;
+  cursor: pointer;
+  background-color: #f7c9f3;
+  -webkit-box-shadow: inset -1px -1px #997d97, inset 1px 1px white;
+          box-shadow: inset -1px -1px #997d97, inset 1px 1px white;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 16px;
+  color: #110038;
+  margin: 64px 0px 0px 531px;
 }
 
 * {
